@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.3.1
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE.md
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <title>Musings of a Software Development Manager</title>
+    <meta name="description" content="lessons learned managing developers">
+    <link rel="canonical" href="https://edgibbs.com/page39/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Musings of a Software Development Manager" href="/feed.xml">
+  
+</head>
+
+
+  <body class="layout--home ">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/archive.html" itemprop="url">
+            <span itemprop="name">Archive</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/bio.html" itemprop="url">
+            <span itemprop="name">Bio</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/junit-4-with-hamcrest.html" itemprop="url">
+            <span itemprop="name">JUnit 4 with Hamcrest</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/spock-intro-a-bdd-testing-framework-in-groovy.html" itemprop="url">
+            <span itemprop="name">Spock Intro</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:edward_gibbs@yahoo.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/edgibbs">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://twitter.com/edward_gibbs">
+  <span class="icon icon--twitter"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z" fill-rule="nonzero"/></svg></span>
+  <span class="label">Twitter</span>
+</a>
+</li>
+  
+
+  <li>
+    
+      <a href="/feed.xml" title="Atom Feed">
+        <span class="icon icon--rss"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194 11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0 13.806c0-1.21.983-2.195 2.194-2.195zM10.606 16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"/></svg></span>
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/images/avatar.jpg" alt="" class="site-logo">
+            <span>Musings of a Software Development Manager</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+    <div></div>
+
+    <div>
+      <div class="entries">
+        
+          
+          
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/06/15/sprint-backlog-task-boards-versus-spreadsheets/" rel="bookmark">Sprint Backlog: Task Boards Versus Spreadsheets
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-06-15T19:49:44+00:00">June 15, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>In the last two years of using Scrum on projects the Sprint Backlog was:</p>
+
+<p>Excel Spreadsheets: <strong>6</strong></p>
+
+<p>Task Boards: <strong>4</strong></p>
+
+<p>Spreadsheets are winning.</p>
+
+<p>Our environment is a medium sized financial services company with independent projects. We don’t have Scrum of Scrums or any need for them at this point. Everyone is located on-site with the rare exception of one project that temporarily has to coordinate with a vendor off-site. All but one of the projects has worked with a collocated team.</p>
+
+<p>Given our situation current practice would assume we’d probably be better off with task boards then Excel spreadsheets. Even <a href="http://www.agilejournal.com/content/view/308/33/">Ryan Martens</a>, CTO of Rally Software, agrees that:</p>
+
+<blockquote>
+  <p>… there is no better tooling answer than white boards and cards for individual teams and bottom-up team adoption of Agile. However, white boards and cards are not enough to support Agile development on larger programs, teams of teams, or distributed teams. In these environments, people need tools and techniques to bring the benefits of Agile to medium and large teams.</p>
+</blockquote>
+
+<p>Similarly, <a href="http://blog.versionone.net/blog/2007/02/a_tool_by_any_o.html">Mark Crowe</a> of VersionONE mentions that:</p>
+
+<blockquote>
+  <p>A small team huddled together in a single workspace with an on-site customer (or product owner depending on your terminology preference) can very well use index cards and whiteboards as their planning and management tools to run an incredibly effective agile process.</p>
+</blockquote>
+
+<p>Other members of the Agile community can be even harsher on the spreadsheet debate including <a href="http://agilethinking.net/blog/2007/02/21/when-is-scrum-not-scrum/">Tobias Mayer</a>:</p>
+
+<blockquote>
+  <p>The Scrum books, and many CSM courses promote the use of spreadsheets to track the sprint. This is really horrible. Spreadsheets hide information, and they lie. The best way to create transparency is to display everything on Big Visible Charts. The interactive, collaborative nature of taskboards lends itself to the Scrum process, like no electronic tool ever can.</p>
+</blockquote>
+
+<p>On one project we even do a task board and a spreadsheet. I had to fight a pretty intense battle to keep using the task board, even though the whole project team told me they liked it better than the spreadsheets.</p>
+
+<p>The worst aspect of the spreadsheets is the inherent danger in multiple page printouts at the daily standup. Instead of just answering the basic questions and engaging in a bit of collaboration the process can break down to conversations like the following:</p>
+
+<p><strong>Team Member One:</strong> OK, yesterday I finished #42 and (rifle through a few sheets) and I started #102.</p>
+
+<p><strong>Scrum Master:</strong> Any impediments?</p>
+
+<p><strong>Team Member One:</strong> No.</p>
+
+<p><strong>Team Member Two:</strong> I worked on #34 yesterday so take 4 hours off of it.</p>
+
+<p><strong>Scrum Master:</strong> Scrum Master, hold on. (rifling back to the front sheet.) But that was only a 2 hour task so you’re all done?</p>
+
+<p><strong>Team Member Two:</strong> Oh, I guess I don’t have the newest backlog, can I borrow yours (Team Member One’s spreadsheet is handed over.)</p>
+
+<p><strong>Team Member Two:</strong> OK, so I have six hours left on #35 Credit Score Service.</p>
+
+<p><strong>Scrum Master:</strong> Anything else?</p>
+
+<p><strong>Team Member Two:</strong> Well, I’m doing the prototype for the profile page, but I don’t know where that is on here.</p>
+
+<p>Now the question is keep fighting the good fight for task boards and big visible charts or go for a Agile tool like ScrumWorks, Rally, or VersionOne?</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/06/05/ruminations-on-google-developer-day-2007/" rel="bookmark">Ruminations on Google Developer Day 2007
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-06-05T20:54:08+00:00">June 5, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>Google Developer Day was a good experience for a free event. It’s always nice to see how software development shops go out of their way to make for happy developers. There were plenty of good snacks, bean bag chairs, reasonable wireless, a foosball table and pool table. I snagged two pretty nice T-shirts and they had enough for the 1500+ developers at the San Jose Convention Center. The lunch was the best I’ve ever had at a conference of any sort. I’m guessing we were getting the Google gourmet chef experience.</p>
+
+<p>The talks ranged in value. Part of the issue is they were only 1 hour and generally not technical or tutorial style talks. There was really limited times for any questions. And note to any conference organizers–when you put a single mike in the room and it fills up it’s really hard for people to pick up their laptop and clamber through the crowd just to ask a question.</p>
+
+<p>It was a Google developer day so the focus was on Google tools. GWT was my focus for the day to see if it’s a reasonable approach for some of our future web apps. As it stands I’m still taking the wait and see approach after attending a few of the talks. It has some weight behind it, but I don’t think it’s really taken off as one of the defacto Java web frameworks yet. I’m pretty sure if we were leaving JSF, I’d probably favor Wicket or Struts 2 over GWT. They did have one really nice feature though. The back button actually works. Living in portlet and JSF land you often find that you don’t own the URL and supporting the back button can be nigh impossible.</p>
+
+<p>Did I get enough out of it to attend next year? I’m still debating this. I’ll probably wait until next year and take a look at the agenda.</p>
+
+<!-- Technorati Tags Start -->
+
+<p>Technorati Tags:</p>
+
+<p><a href="http://technorati.com/tag/GDD07" rel="tag">GDD07</a></p>
+
+<!-- Technorati Tags End -->
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/05/31/google-gears-walk-away-with-the-database/" rel="bookmark">Google Gears: Walk Away With The Database
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-05-31T13:41:43+00:00">May 31, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>Does <a href="http://code.google.com/apis/gears/index.html">Google Gears</a> expose your data to desktop security problems?</p>
+
+<p>Google just kicked off another new product to offer offline web applications. There’s a simple plugin that’s available as a free download under a BSD license. It works for:</p>
+
+<ul>
+  <li>Firefox</li>
+  <li>IE</li>
+  <li>Safari (almost!)</li>
+</ul>
+
+<p>(With Safari it works if you build Safari’s webkit from source.)</p>
+
+<p>As for operating systems it supports the big three:</p>
+
+<ul>
+  <li>Mac</li>
+  <li>Windows</li>
+  <li>Linux</li>
+</ul>
+
+<p>The first example showed Google Reader being used offline. It grabs the last 2000 feeds. The pain point is you have to tell it you’re going offline, so the syncing is a bit manual. There’s actually a tiny button to toggle. They seem to understand it just needs to know when you are offline or online and handle the syncing automatically.</p>
+
+<p>SQLite is the offline database engine and it can handle full text searches of millions of documents.</p>
+
+<p>Finally, the security bullet showed up. It has the same strict-origin security model.</p>
+
+<ul>
+  <li>A web page with a particular scheme, host, and port can only access resources with the same scheme, host, and port.</li>
+  <li>Using the Google Gears plugin is explicit and the user has to opt-in.</li>
+</ul>
+
+<p>They didn’t address the main issue that will concern corporate IT security folks, but it is discussed on their security page:</p>
+
+<blockquote>
+  <p>On the other hand, two people using the same OS login could theoretically access each other’s Gears data files, just as they could access any other file on the machine.</p>
+</blockquote>
+
+<blockquote>
+
+</blockquote>
+
+<blockquote>
+  <p>– Google’s <a href="http://code.google.com/apis/gears/security.html">Security Documentation</a> for Google Gears</p>
+</blockquote>
+
+<p>The nasty scenario is one of your salespeople downloads a few hundred thousand customer records to their own machine. With traditional web applications the data never leaves the server other than to display small sections say in a search results page. With a local database cache you’re carrying around a copy of all of that information.</p>
+
+<p>Looks like we’re going to see a big push for offline web applications.</p>
+
+<h3 id="update">Update</h3>
+
+<p>Turns out at least some developers have already thought about the stolen laptop use case with offline web apps. A developer of Dojo Offline talked about what to do about a stolen laptop. Dojo Offline is a new javascript library for offline use of web applications. It uses Google Gears for offline.</p>
+
+<p>Without a good answer an entire swath of industries won’t dare touch offline mode. Right now Dojo offline adds a DES encryption library with functions to encrypt and decrypt. The example used encrypting/decrypting SSNs. He also pointed out that doing this in javascript can be computationally intensive and hasn’t been that feasible before. Right now though using Google Gears worker threads they can encrypt/decrypt in javascript at about 80k/second.</p>
+
+<p>Good to see developers are already realizing this issue needs to be figured out.</p>
+
+<!-- Technorati Tags Start -->
+
+<p>Technorati Tags:</p>
+
+<p><a href="http://technorati.com/tag/GDD07" rel="tag">GDD07</a></p>
+
+<!-- Technorati Tags End -->
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/05/28/first-sacramento-ruby-user-group-meeting/" rel="bookmark">First Sacramento Ruby User Group Meeting
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-05-28T21:08:33+00:00">May 28, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>May 23rd from 6:30-9:00pm the first Sacramento Ruby User Group Meeting was held at the <a href="http://invisionddg.com/">Invision Design and Development</a> offices in Old Sacramento. In attendance:</p>
+
+<ul>
+  <li>Ryan – a full time Rails developer with <a href="http://invisionddg.com/">Invision</a>.</li>
+  <li>Layton – a Rails developer.</li>
+  <li>Tom Mornini – CTO of <a href="http://www.engineyard.com/">EngineYard</a>.</li>
+  <li>Ed Gibbs – author of this blog.</li>
+</ul>
+
+<p>No planned agenda. No sponsored pizza and snacks. No presentations. Plenty of good conversation. I got in a little late, but the group had been discussing Rails Conf 2007. All of them were able to attend, though Tom went as a vendor so he didn’t really get to attend sessions.</p>
+
+<p>The topics ranged from Django versus Rails to virtual hosting. Tom shared a few items about EngineYard, our local successful Rails startup:</p>
+
+<ul>
+  <li>He recently hired <a href="http://blog.fallingsnow.net/">Evan Phoenix</a> of the <a href="http://rubini.us/">Rubinius</a> project to create a pure Ruby interpreter for Ruby.</li>
+  <li><a href="http://www.brainspl.at/">Ezra Zygmuntowic</a> is moving down to the Sacramento area in the next month or so, which will help build up the local community.</li>
+  <li>Using <a href="http://www.xensource.com/">Xen</a> virtualization has worked really well for them.</li>
+</ul>
+
+<p>I’m looking forward to the next meeting.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/05/25/deploying-rails-to-tomcat-as-a-war-with-jruby/" rel="bookmark">Deploying Rails to Tomcat as a WAR with JRuby
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-05-25T22:27:31+00:00">May 25, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <h3 id="assumptions">Assumptions</h3>
+
+<ul>
+  <li>You are experienced with Java and have at least dabbled around with Ruby on Rails.</li>
+  <li>These steps worked for me on a Mac OS X 1.0.4.9 system</li>
+  <li>I’ve walked through the steps 3 times from scratch, but your mileage may still vary.</li>
+</ul>
+
+<h3 id="install-and-configure-jruby">Install and Configure JRuby</h3>
+
+<p>First step download install JRuby. You can get it at:</p>
+
+<ul>
+  <li>http://dist.codehaus.org/jruby/</li>
+</ul>
+
+<p>After pulling down the tarball,</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby-bin-1.0.0RC2.tar.gz
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>, I unpacked it and installed at:</p>
+
+<ul>
+  <li>
+    <div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+          
+      <td>
+        <div class="text codecolorer">
+          /Applications/jruby1.0.2RC
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+  </li>
+</ul>
+
+<p>Next, add the environment variable</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          JRUBY_HOME
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>to point to</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          /Applications/jruby1.0.2RC
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>. I added it to my</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          .bash_profile
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>since I’m running the bash shell by default on Mac OS X:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          # JRuby<br /><br /> export JRUBY_HOME=/Applications/jruby1.0.0RC2
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Since I don’t want to take out my normal Ruby C install I just export it in front of the path just for this terminal session:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          export PATH=$JRUBY_HOME/bin:$PATH
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Double check that JRuby is setup:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby --version
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>This should return something like:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          ruby 1.8.5 (2007-05-16 rev 3672) [i386-jruby1.0.0RC2]
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3 id="test-with-a-simple-jruby-app">Test With A Simple JRuby App</h3>
+
+<p>Go ahead and setup a directory for your JRuby apps:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          cd ~<br /><br /> mkdir jruby_stuff<br /><br /> cd jruby_stuff<br /><br /> mate test_java.rb
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>The last step assumes your using textmate. You can replace it with any</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          vi
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>or any other editor you want.</p>
+
+<p>Write a small JRuby app and save it:</p>
+
+<p>[ruby]</p>
+
+<p>require ‘java’</p>
+
+<p>include_class ‘java.util.ArrayList’</p>
+
+<p>list = ArrayList.new</p>
+
+<p>list.add “Ruby”</p>
+
+<p>list.add “+”</p>
+
+<p>list.add “Java”</p>
+
+<p>list.add “=”</p>
+
+<p>list.add “JRuby”</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>list.each do</td>
+      <td>word</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>puts “#{word}”</p>
+
+<p>end</p>
+
+<p>[/ruby]</p>
+
+<p>Go ahead and run the simple ruby script and test the java integration of JRuby:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby test_java.rb
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Should see:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          Ruby<br /><br /> +<br /><br /> Java<br /><br /> =<br /><br /> JRuby<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3 id="rails-setup">Rails Setup</h3>
+
+<p>Run:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          gem install rails -y --no-ri --no-rdoc
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>This should take about a minute. There are lots of notes on how ri and Rdoc take a long time to run right now, but it wasn’t too bad, about 5 minutes on a duo core Macbook Pro, but you can keep the two switches and save a little time.</p>
+
+<p>The next step is a bit odd. For some reason the rails and rake files don’t get installed as executable. You have to make them executable and then pick up the changes using the bash</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          hash
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>command.</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          chmod 775 $JRUBY_HOME/bin/rails<br /><br /> chmod 775 $JRUBY_HOME/bin/rake<br /><br /> hash -r
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<h3 id="sample-rails-app-running-in-jruby">Sample Rails App Running in JRuby</h3>
+
+<p>Then create your test rails app in JRuby. I used that idea of a book store application:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          rails bookstore<br /><br /> cd bookstore
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Go ahead and do a smoke test by booking up the server.</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby script/server
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Should see a default rails page at</p>
+
+<ul>
+  <li>http://localhost:3000</li>
+</ul>
+
+<h3 id="activerecord-jdbc-setup">ActiveRecord JDBC Setup</h3>
+
+<p>Kill WEBrick and install the ActiveRecord JDBC gem:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          gem install ActiveRecord-JDBC<br /><br /> Installing ri documentation for ActiveRecord-JDBC-0.3.1...<br /><br /> Installing RDoc documentation for ActiveRecord-JDBC-0.3.1...<br /><br /> Successfully installed ActiveRecord-JDBC-0.3.1
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Modify the</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          config/database.yml
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          development:<br /><br /> &nbsp; adapter: jdbc<br /><br /> &nbsp; driver: com.mysql.jdbc.Driver<br /><br /> &nbsp; url: jdbc:mysql://localhost/bookstore_development<br /><br /> &nbsp; username: root<br /><br /> &nbsp; password:
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Modify</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          config/environment.rb
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>to add jdbc as an adapter type. The code goes just above</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          Rails::Initializer.run
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>[ruby]</p>
+
+<p>if RUBY_PLATFORM =~ /java/</p>
+
+<p>require ‘rubygems’</p>
+
+<p>RAILS_CONNECTION_ADAPTERS = %w(jdbc)</p>
+
+<p>end</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Rails::Initializer.run do</td>
+      <td>config</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[/ruby]</p>
+
+<p>Get the MYSQL JDBC driver at:</p>
+
+<ul>
+  <li>http://www.mysql.com/products/connector/j/</li>
+</ul>
+
+<p>I grabbed the file</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          mysql-connector-java-5.0.6-bin.jar
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>and added it to my</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          $JRUBY_HOME/lib
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>. You can also add it to your</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          $CLASSPATH
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>instead.</p>
+
+<p>Start your MySQL server if it isn’t running. I just do this from the MySQL Preferences pane.</p>
+
+<p><img src="/images/mysql_preferences.png" alt="" /></p>
+
+<p>Time to setup the databases:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          mysql -u root<br /><br /> create database bookstore_development;<br /><br /> create database bookstore_test;<br /><br /> exit
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Go back to the rails app and create a model for Books.</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby script/generate model Book
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Create a simplistic migration script in the file</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          db/migrate/001_create_books.rb
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>:</p>
+
+<p>[ruby]</p>
+
+<p>def self.up</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>create_table :books do</td>
+      <td>table</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>table.column :title, :string</p>
+
+<p>table.column :author, :string</p>
+
+<p>end</p>
+
+<p>end</p>
+
+<p>[/ruby]</p>
+
+<p>Run the migration:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          rake db:migrate
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Then create the scaffolding for Book:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby script/generate scaffold Book<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Startup the server:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby script/server<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Go to the URL and see the scaffolding using JDBC:</p>
+
+<ul>
+  <li>http://localhost/books/</li>
+</ul>
+
+<h3 id="running-the-tests">Running the Tests</h3>
+
+<p>You should be able to run the rake command and run all the tests now. Instead you get an error about like this:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          rake aborted!<br /><br /> Task not supported by 'jdbc'<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Turns out this is due to some hard coded values in the rails rake tasks. It has an easy fix by way of <a href="http://ola-bini.blogspot.com/">Ola Bini</a>:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          cd $JRUBY_HOME/lib/ruby/gems/1.8/gems/ActiveRecord-JDBC-0.3.1/lib<br /><br /> svn checkout svn://rubyforge.org/var/svn/jruby-extras/trunk/activerecord-jdbc/lib/tasks<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>This pulls down a file</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jdbc_databases.rake
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>that I could only find in the subversion repository for now. Copy that file to the bookstore lib/tasks directory:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          cp tasks/jdbc_databases.rake ~/jruby_stuff/bookstore/lib/tasks<br /><br /> cd ~/jruby_stuff/bookstore<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Time to run all the default tests with rake:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          rake<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>All the tests pass!</p>
+
+<h3 id="create-the-war">Create the WAR</h3>
+
+<p>Kill WEBrick again and install the rails-integration plugin to deploy setup rake tasks to create wars:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          jruby script/plugin install svn://rubyforge.org/var/svn/jruby-extras/trunk/rails-integration/plugins/goldspike<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>It appears the war created uses the production settings so you’ll need to create the production database:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          mysql -u root<br /><br /> create database bookstore_production;<br /><br /> exit<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Then fix the</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          config/database.yml
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>to include jdbc adapters for test and production:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          test:<br /><br /> &nbsp; adapter: jdbc<br /><br /> &nbsp; driver: com.mysql.jdbc.Driver<br /><br /> &nbsp; url: jdbc:mysql://localhost/bookstore_test<br /><br /> &nbsp; username: root<br /><br /> &nbsp; password:<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          production:<br /><br /> &nbsp; adapter: jdbc<br /><br /> &nbsp; driver: com.mysql.jdbc.Driver<br /><br /> &nbsp; url: jdbc:mysql://localhost/bookstore_production<br /><br /> &nbsp; username: root<br /><br /> &nbsp; password:<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Go ahead and run the migration for production as well:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          rake db:migrate RAILS_ENV=production<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Then you run:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          rake war:standalone:create<br /> <br /><br /> Assembling web application<br /><br /> &nbsp; Adding Java library commons-pool-1.3<br /><br /> &nbsp; Adding Java library activation-1.1<br /><br /> &nbsp; Adding Java library jruby-complete-0.9.9<br /><br /> &nbsp; Adding Java library bcprov-jdk14-124<br /><br /> &nbsp; Adding Java library rails-integration-1.1.1<br /><br /> &nbsp; Adding web application<br /><br /> &nbsp; Adding Ruby gem rails version 1.2.3<br /><br /> &nbsp; Adding Ruby gem rake version 0.7.3<br /><br /> &nbsp; Adding Ruby gem activesupport version 1.4.2<br /><br /> &nbsp; Adding Ruby gem activerecord version 1.15.3<br /><br /> &nbsp; Adding Ruby gem actionpack version 1.13.3<br /><br /> &nbsp; Adding Ruby gem actionmailer version 1.3.3<br /><br /> &nbsp; Adding Ruby gem actionwebservice version 1.2.3<br /><br /> &nbsp; Adding Ruby gem ActiveRecord-JDBC version 0.3.1<br /><br /> Creating web archive<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>This may take a few minutes the first time, but it appears to be much faster in subsequent builds.</p>
+
+<h3 id="deploy-to-tomcat">Deploy to Tomcat</h3>
+
+<p>At this point you just need to drop the mysql JDBC driver in TOMCAT’s lib directory at:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          $TOMCAT_HOME/common/lib/mysql-connector-java-5.0.6-bin.jar<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Copy the bookstore.war file to</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          cp bookstore.war $TOMCAT_HOME/webapps/<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Then startup Tomcat:</p>
+
+<div class="codecolorer-container text vibrant overflow-off" style="overflow:auto;white-space:nowrap;">
+  <table cellspacing="0" cellpadding="0">
+    <tr>
+      <td class="line-numbers">
+        <div>
+          1<br />
+        </div>
+      </td>
+      
+      <td>
+        <div class="text codecolorer">
+          $TOMCAT_HOME/bin/startup.sh<br />
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<p>Goto the app at:</p>
+
+<ul>
+  <li>http://localhost:8080/bookstore/books/</li>
+</ul>
+
+<p>Now do your happy dance! Or maybe just take a break and grab a soda.</p>
+
+<h3 id="sources">Sources</h3>
+
+<p>I got this recipe for deployment together from several sources:</p>
+
+<ul>
+  <li>The general recipe was cobbled together from <a href="http://buggyvelarde.org/?p=20">Buggy Velarde</a>.</li>
+  <li><a href="http://ola-bini.blogspot.com/">Ola Bini</a> for the getting started <a href="http://jruby.codehaus.org/The+JRuby+Tutorial+Part+1+-+Getting+Started">tutorials</a> with JRuby.</li>
+  <li><a href="http://blog.nicksieger.com/">Nick Sieger</a> for his post on <a href="http://www.headius.com/jrubywiki/index.php/Running_Rails_with_ActiveRecord-JDBC">ActiveRecord JDBC</a>.</li>
+  <li>And the <a href="http://www.headius.com/jrubywiki/index.php/Rails_Integration">Rails Integration</a> article on the JRuby wiki.</li>
+</ul>
+
+<h3 id="things-to-come">Things To Come</h3>
+
+<ul>
+  <li>Deploy a big rails app.</li>
+  <li>Deploy to a commercial container like Websphere Appliation Server.</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+<!-- Pagination links -->
+<nav class="pager">
+  <ul>
+    <!-- Page: 39 of 151 -->
+    
+      <li><a href="/page38/" class="previous"><span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="430 -22.8 16 16"><path d="M433.4-15.7c-.2.2-.4.5-.4.9 0 .3.1.6.4.9l6.7 6.7c.2.3.5.4.9.4.3 0 .6-.1.9-.4l.8-.8c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-5-5 5-5c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-.8-.8c-.2-.3-.5-.4-.9-.4-.3 0-.7.1-.9.4l-6.7 6.7z"/></svg></span> Newer</a></li>
+    
+    
+      <li><a href="/page40/" class="next">Older <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></li>
+    
+  </ul>
+</nav>
+        
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2020 Musings of a Software Development Manager.</p>
+      
+    </div>
+  </div>
+</footer>
+
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+<script async src="/assets/javascripts/main.js"></script>
+
+
+
+
+  </body>
+
+</html>

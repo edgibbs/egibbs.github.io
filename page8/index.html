@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.3.1
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE.md
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <title>Musings of a Software Development Manager</title>
+    <meta name="description" content="lessons learned managing developers">
+    <link rel="canonical" href="https://edgibbs.com/page8/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Musings of a Software Development Manager" href="/feed.xml">
+  
+</head>
+
+
+  <body class="layout--home ">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/archive.html" itemprop="url">
+            <span itemprop="name">Archive</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/bio.html" itemprop="url">
+            <span itemprop="name">Bio</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/junit-4-with-hamcrest.html" itemprop="url">
+            <span itemprop="name">JUnit 4 with Hamcrest</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/spock-intro-a-bdd-testing-framework-in-groovy.html" itemprop="url">
+            <span itemprop="name">Spock Intro</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:edward_gibbs@yahoo.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/edgibbs">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://twitter.com/edward_gibbs">
+  <span class="icon icon--twitter"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z" fill-rule="nonzero"/></svg></span>
+  <span class="label">Twitter</span>
+</a>
+</li>
+  
+
+  <li>
+    
+      <a href="/feed.xml" title="Atom Feed">
+        <span class="icon icon--rss"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194 11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0 13.806c0-1.21.983-2.195 2.194-2.195zM10.606 16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"/></svg></span>
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/images/avatar.jpg" alt="" class="site-logo">
+            <span>Musings of a Software Development Manager</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+    <div></div>
+
+    <div>
+      <div class="entries">
+        
+          
+          
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2015/06/08/sourcetree-versus-gitk/" rel="bookmark">SourceTree versus Gitk
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2015-06-08T18:27:56+00:00">June 8, 2015</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <div align="center">
+  <img src="/images/sourcetree_icon.png" />
+</div>
+
+<p>Git is a command line focused tool with hundreds of options. You can even visually see a graph of commit history in the terminal using git log with –graph. The default visual git tool is gitk which makes a reasonable GUI client for digging through history or doing ad-hoc code reviews.</p>
+
+<p>A few years ago someone suggested looking at Atlasssian’s <a href="https://www.atlassian.com/software/sourcetree/overview">SourceTree</a> as a better option. I’ve used Atlassian tools in the past and generally found them to be well designed a useful. As it’s a free tool it was an easy option.</p>
+
+<p>SourceTree has been marketed in many ways as a visual tool for users new to git. I think it’s probably a bit dangerous to use in this way. You’re better off learning the simple workflow through something like <a href="https://try.github.io/levels/1/challenges/1">Try Git</a> and sticking to the command line. SourceTree can be a a great supplement showing you in a visual way exactly what’s going on.</p>
+
+<p>I use SourceTree in an entirely read-only mode. It’s easy to see the various branches and merges and walk through history. Since we currently don’t use Gitlab or a similar tool for git I use it for ad-hoc code reviews. It’s easy enough to step through commits fairly quickly. When I have comments I simply screen capture the view from SourceTree and attach it to a simple email. It’s primitive, but effective enough. Other than that my most common use case is perusing stashes as I sometimes let things stack up there and I can quickly bring them up to see if there’s anything worth keeping.</p>
+
+<p>After three years it still serves my purpose much better than gitk and I find the layout more efficient and powerful.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2015/06/01/why-slack-needs-sound-effects/" rel="bookmark">Why Slack Needs Sound Effects
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2015-06-01T18:42:53+00:00">June 1, 2015</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>Not to be left behind in hipster group chats, we migrated from <a href="https://campfirenow.com">Campfire</a> to <a href="https://slack.com">Slack</a> a few months ago. It’s a slick, simple group chat system with a few elements of fun including custom emojis. We added Carl and Paul from <a href="https://www.youtube.com/watch?v=kZUPCB9533Y">Llamas with Hats</a> to our custom set. We’ve also livened up things with a custom <a href="https://hubot.github.com">Hubot</a><a href="https://hubot.github.com"></a>. Still there is one very sad missing feature <strong>Sound Effects</strong>.</p>
+
+<p>A bit of research shows the team at slack has had sound effects on its backlog for a long time:</p>
+
+<blockquote class="twitter-tweet" lang="en">
+  <p lang="en" dir="ltr">
+    Slack custom emoji but for sound effects. Make it happen, guys.&#10;&#10;+<a href="https://twitter.com/SlackHQ">@SlackHQ</a>
+  </p>
+  
+  <p>
+    &mdash; Nathan Peretic (@nathanperetic) <a href="https://twitter.com/nathanperetic/status/452483828217827328">April 5, 2014</a>
+  </p>
+</blockquote>
+
+<blockquote class="twitter-tweet" lang="en">
+  <p lang="en" dir="ltr">
+    <a href="https://twitter.com/SlackHQ">@SlackHQ</a> Can Slack do sounds like Campfire ("/play soundname")? Silly as they may be, it's an essential feature for team camaraderie.
+  </p>
+  
+  <p>
+    &mdash; John Pray (@LouieGeetoo) <a href="https://twitter.com/LouieGeetoo/status/439070725992103937">February 27, 2014</a>
+  </p>
+</blockquote>
+
+<p>We’re more than a year later and still no sign of adding sound effects. We really relied on getting audio notifications of broken builds. Now things slip by for a while as the email or text notifications get lost amid the clutter. And sometimes you just need to play PushIt while deploying. Please Slack get this done.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2015/05/25/dotcom-junior-devs-2-0/" rel="bookmark">Dotcom Junior Devs 2.0
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2015-05-25T18:48:01+00:00">May 25, 2015</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>In case you don’t remember the crazy gold rush days of the first dotcom boom, let’s just say that this was a defining image of the times:</p>
+
+<div align="center">
+  <img src="/images/html_4_21_days.jpg" />
+</div>
+
+<p>At the time you could land a well paying job at pretty much any dotcom with no more than some basic HTML skills and a willingness to learn. A wave of people swept in and made up a large part of the dotcom workforce. Having a background actually programming was really nice to have, but became almost an afterthought as VCs helped push the rush to bring in warm bodies. If you were in another field at the time and wanted to try out life as a developer, project manager, tester, system admin it was a great time to jump in. There was low risk and plenty of reward.</p>
+
+<p>I worked for a director who had been a bartender until 1999. On a project in 2000 one team had a former translator, an office administrator, and a lawyer. All of them had bootstrapped up on books and built a few static HTML sites before they found their first jobs as developers.</p>
+
+<p>I noticed early on that the talent pool had completely dried up when I opened up an office for a dotcom in 2000 in Las Vegas. Our main office was in SF and I was amazed at the number of hires they’d made that really didn’t have any coding skills. Vegas at the time had a pool of solid developers, but we’re not Silicon Valley and the hometown university is UNLV. Still on average we were able to get better developers typically with real experience. I remember my first time visiting SF in 2000 and noting that 90% of all the billboards in the city were advertising doctors, many focused on recruiting. I’d never seen anything like it.</p>
+
+<p>The bar was almost absurdly low for developer in the dotcom boom. This time the bar has moved up a bit. Now the default entry into the field is a Code Academy or Dev Bootcamp experience. Having survived the dotcom boom and bust I think it’s a good thing that the really junior dev coming from non-science or engineering backgrounds actually has done some real coding before starting their first job.</p>
+
+<p>We’ve dipped our toes into these waters in the past year hiring two junior devs who had gone through dev bootcamps. We’ve been pleasantly surprised by several things that we didn’t get from junior developers in the dotcom days:</p>
+
+<ul>
+  <li>They have pair programming experience</li>
+  <li>They actually write unit tests without prodding or coaxing</li>
+  <li>They understand that they’re on a steep learning curve and embrace it</li>
+  <li>They don’t have a lot of bad ingrained habits</li>
+  <li>They understand the basics of putting together a web site</li>
+  <li>They are used to source control, commit early and often, and open source</li>
+</ul>
+
+<p>So the new Dotcom 2.0 junior developers have a leg up from the early 2000s. I think more of them will stay in the field. They put some real time and effort into switching or starting a new career an possibly a decent sum of money and they’re more likely to stick it out. And their baseline is a lot better. They’re all feeling really underprepared even in their first paying dev jobs, but they are far better off then the wave that came in the late 90s.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2015/05/18/rspec-and-the-death-of-should/" rel="bookmark">RSpec and the Death of Should
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2015-05-18T18:53:30+00:00">May 18, 2015</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>I love writing expectations like the following:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">account</span><span class="p">.</span><span class="nf">balance</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_zero</span></code></pre></figure>
+
+<p>It was one of the reasons I first fell in love with RSpec and had a reason to move from dabbling in Ruby to diving in. This was hard and clear evidence that Ruby crushed testing syntax of Java in a way it could never compete with. Just a beautiful DSL with a single little word ‘should’.</p>
+
+<p>Expect has come along to replace and it accomplishes the same thing with a bit more syntax and parens:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">expect</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="nf">balance</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_zero</span></code></pre></figure>
+
+<p>It reads well, but I still like ‘should’ better and I’m not as upset as some about object purity and polluting objects with an extra method. Our development team concluded as much for the last few years. We’d put a quick vote up every 6 months or so to keep should() or bite the bullet and move onto expect. Should always won, but over time the objections became more mild and newer team members had gotten adjusted to expect elsewhere. When the vote came up again a few weeks back, we finally voted to default to the new expect syntax.</p>
+
+<p>My vote had changed from preferring should to being neutral on it. Over time most of that came from working on newer Ruby open source projects and following the new expect syntax when adding tests in a pull request. Idioms and styles evolve and I’d seen enough adoption to justify retiring my old friend should(). The small benefit has been with Jasmine with its very similar expects now doesn’t lead to accidentally writing a should() in a Jasmine spec. I still miss should(), but having everyone use the same assertion approach is better for the group.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2015/05/11/one-language-resumes/" rel="bookmark">One Language Resumes
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2015-05-11T18:32:28+00:00">May 11, 2015</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <div align="center">
+  <img src="/images/get_out_of_jail_free.jpg" />
+</div>
+
+<p>Reviewing resumes as a manager, tech lead, or even just a developer is no one’s favorite activity. Resume’s are inefficient, misleading and so often <strong>boring</strong>. If you’re a prospective hire boring is bad.</p>
+
+<p>A simple case is the standard corporate style J2EE developer resume. There are host of bullet points claiming skills I already expect them to have with 10+ years of development experience.</p>
+
+<ul>
+  <li>Spring</li>
+  <li>Hibernate</li>
+  <li>Tomcat, JBoss, Weblogic, or WebSphere</li>
+  <li>A smattering of design patterns from Singleton to Template Method</li>
+  <li>Javascript and some JQuery</li>
+  <li>Some selection of Java’s innumerable web frameworks.</li>
+  <li>Oracle/SQL Server/MySQL</li>
+</ul>
+
+<p>At this point they’ve done nothing to distinguish themselves from the pile of already screened and rejected resumes beside them. You’ve developed on the JVM for 10+ years and you’ve never looked into alternative JVM languages. No Groovy, Scala, or Clojure. Not even some adventure off the JVM into Ruby, Go, Elixir, Python.</p>
+
+<p>Java is by design a simple if verbose language with a huge amount of libraries and IDE tooling. It has never been the best solution for almost anything. Luckily there’s been a “Get out of Jail” free card option for a long time now. You can pull out a JVM language that better fits the problem space solve the problem more elegantly. All that and still produce compatible byte code and interop easily with existing Java libraries. It’s a career limiting to ignore that opportunity.</p>
+
+<p>For the brave there’s always the option of leaving the JVM entirely and trying something like Ruby, Python or Go. It may require adjusting to life outside a familiar IDE or dealing with a new set of libraries, but it’s not a very difficult step to make.</p>
+
+<p>So fair or not let me explain the conclusions I make when I see a J2EE developer resume with many years of experience and no mention of a second or third language experience:</p>
+
+<ul>
+  <li>Not very interested in learning in an engineering field that is constantly changing.</li>
+  <li>Did the majority of their learning by working on an existing Java codebase, and aren’t interested in spending any time coming up to speed on anything that isn’t currently required for the job.</li>
+  <li>Don’t enjoy development as a pursuit other than the fact that it’s fairly well compensated.</li>
+  <li>Are OK with doing things the hard way because they have one hammer in the toolbox.</li>
+  <li>Think they know a second language because they hack some javascript when required.</li>
+  <li>Copy and Paste is their most common approach to gaining code refuse.</li>
+  <li>Won’t be able to come up to speed quickly.</li>
+  <li>Are going to bomb out in a phone screen, so no point in scheduling one.</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+<!-- Pagination links -->
+<nav class="pager">
+  <ul>
+    <!-- Page: 8 of 151 -->
+    
+      <li><a href="/page7/" class="previous"><span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="430 -22.8 16 16"><path d="M433.4-15.7c-.2.2-.4.5-.4.9 0 .3.1.6.4.9l6.7 6.7c.2.3.5.4.9.4.3 0 .6-.1.9-.4l.8-.8c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-5-5 5-5c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-.8-.8c-.2-.3-.5-.4-.9-.4-.3 0-.7.1-.9.4l-6.7 6.7z"/></svg></span> Newer</a></li>
+    
+    
+      <li><a href="/page9/" class="next">Older <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></li>
+    
+  </ul>
+</nav>
+        
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2020 Musings of a Software Development Manager.</p>
+      
+    </div>
+  </div>
+</footer>
+
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+<script async src="/assets/javascripts/main.js"></script>
+
+
+
+
+  </body>
+
+</html>

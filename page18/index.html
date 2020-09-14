@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.3.1
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE.md
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <title>Musings of a Software Development Manager</title>
+    <meta name="description" content="lessons learned managing developers">
+    <link rel="canonical" href="https://edgibbs.com/page18/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Musings of a Software Development Manager" href="/feed.xml">
+  
+</head>
+
+
+  <body class="layout--home ">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/archive.html" itemprop="url">
+            <span itemprop="name">Archive</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/bio.html" itemprop="url">
+            <span itemprop="name">Bio</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/junit-4-with-hamcrest.html" itemprop="url">
+            <span itemprop="name">JUnit 4 with Hamcrest</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/spock-intro-a-bdd-testing-framework-in-groovy.html" itemprop="url">
+            <span itemprop="name">Spock Intro</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:edward_gibbs@yahoo.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/edgibbs">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://twitter.com/edward_gibbs">
+  <span class="icon icon--twitter"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z" fill-rule="nonzero"/></svg></span>
+  <span class="label">Twitter</span>
+</a>
+</li>
+  
+
+  <li>
+    
+      <a href="/feed.xml" title="Atom Feed">
+        <span class="icon icon--rss"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194 11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0 13.806c0-1.21.983-2.195 2.194-2.195zM10.606 16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"/></svg></span>
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/images/avatar.jpg" alt="" class="site-logo">
+            <span>Musings of a Software Development Manager</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+    <div></div>
+
+    <div>
+      <div class="entries">
+        
+          
+          
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2009/06/17/corporate-source-control-options-and-git/" rel="bookmark">Corporate Source Control Options and git
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2009-06-17T20:51:56+00:00">June 17, 2009</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <div align="center">
+  <img src="/images/harvest.jpg" /><br /> <!-- http://www.flickr.com/photos/matze_ott/1841491996/ -->
+</div>
+
+<p>I’ve heard about git and decentralized version control systems like Mercurial for a few years. Conceptually it sounded interesting, but not compelling. Over the years I’ve used the following version control systems:</p>
+
+<ul>
+  <li><strong>No version control</strong> – a very early web startup around 1994. I was blissfully unaware of version control at this point.</li>
+  <li><strong>VSS</strong> – A horrible experiment in using a Windows share as version control. Better than nothing, but just barely. I’m glad to see Microsoft finally retired this beast with the Team System source control. From the few stories I’ve heard Microsoft never really used VSS themselves and I believe they used to be primarily a Perforce shop.</li>
+  <li><strong>CVS</strong> – My first love among source control. For months at a startup in Vegas we had to use VSS on servers that were located at the main office in San Francisco. Just listing a directory could take minutes. After a few months of political battles we finally won them over after the CTO learned one of our developers had to fly to SF with a CD because it was the only way to get a medium sized java project checked in. It was great because it just worked. And the speed was wonderful even if it’s a bit slow by today’s source control standards.</li>
+  <li><strong>Harvest</strong> – They asked us to use this at one client site. They sent out a special trainer to show us how cool it was. The visual client actually used a combine reaping wheat as the animation when you checked in. It took us just a few hours to drop it and just install a local CVS repository and show the rest of the team had to use it. Computer Associates owns the product now which is a sure sign it’s at the very end of it’s life.</li>
+  <li><strong>Perforce</strong> – Most recently I joined a shop that used Perforce. I had never heard anything bad about it other than it was a commercial solution which meant some limitations on support in various tools. I found it a bit difficult to adjust to the terminology such as ‘client spec’ and other items, but I was pretty happy with it’s speed. It was noticeably faster than CVS. Of course it also caused headaches because it’s integration with various open source tools wasn’t the best. One particular pain point was the Hudson plugin. It turned out some bad decisions had been made in the central repository with relation to directories that contained spaces, despite being hosted on Solaris. Without quoting all the paths the checkouts just failed and the Hudson plugin wasn’t setup to support this.</li>
+</ul>
+
+<p>Early on at the last organization I was leading towards migrating quickly to Subversion. Eventually given the number of contract developers I would impact I put the decision off until some later time. Subversion has great support these days as the CVS replacement, but I knew git and other options were out there. Perforce also didn’t have any critical issues and was easy enough to manage since we had already purchased a number of licenses.</p>
+
+<p>My developers really wanted to ditch Perforce for Subversion. As a developer at heart I completely agreed with them, but given all the challenges on our plate the argument just wasn’t compelling enough from an organizational standpoint. I had a similar recent conversation with our EA manager who asked if we were looking at moving to Glassfish soon over JBoss since we were on a non-Redhat supported version. I pointed out that we had piloted Glassfish recently and were happy with it, but I wanted to wait at least a year to see what the Sun Oracle merger will mean for the Glassfish developers. No one wants to migrate away from JBoss to experience something like what happened with Geronimo.</p>
+
+<p>All the while git in the background git was picking up a lot of traction. I finally broke down recently and purchased <a href="http://www.pragprog.com/titles/tsgit/pragmatic-version-control-using-git">Pragmatic Version Control Using Git</a>. Even if it doesn’t end up being the right choice for today and I settle on Subversion for now it would appear the world is headed in that direction in the near future.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2009/06/14/agile-manifesto-style-values/" rel="bookmark">Agile Manifesto Style Values
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2009-06-14T20:10:42+00:00">June 14, 2009</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <div align="center">
+  <img src="/images/c_average.jpg" /><br /> <!-- Flickr http://www.flickr.com/photos/theunabonger/420589683/sizes/m/ -->
+</div>
+
+<p>As a development manager I relished reading Martin Fowler’s <a href="http://martinfowler.com/bliki/ComparativeValues.html">description of values</a> at ThoughtWorks:</p>
+
+<ul>
+  <li>Leveraging bright people <em>over</em> Making the most of moderate people</li>
+  <li>Flexible career paths <em>over</em> Well-defined roles</li>
+  <li>Delivering business value <em>over</em> Leading edge research</li>
+  <li>Learning new technologies <em>over</em> Mastering established technologies</li>
+  <li>Solving difficult problems <em>over</em> Increasing market share</li>
+  <li>Learning from mistakes <em>over</em> Avoidance of taking risks</li>
+  <li>Delivery to the client <em>over</em> Quarterly results</li>
+</ul>
+
+<p>The template is the same as the Agile Manifesto, and it really helps highlight what the real values are by showing them in comparison. Some of them are even daring as they admit to paths they aren’t considering.</p>
+
+<p>Leveraging bright people over making the most of moderate people contradicts the patterns of many IT shops where the model is to maintain a small staff and bring in contractors or consultants for any significant projects. The premise is IT is a service and not core to many businesses so why bother finding the best people. I think this line of thinking is deeply flawed, but what ThoughtWorks is stating is that they intentionally seek out high performers over bringing in mid-range people who can bang out a bunch of hours.</p>
+
+<p>Aligned with utilizing high performers there is an emphasis on flexible career paths, learning new technologies, solving difficult problems, and learning from mistakes. These are the sort of values that are really going to appeal to those high performers. At the end of the day you’re going to have your biggest impact through who you can bring in or recruit to the team. And after dozens of projects over the years Agile, Waterfall, or just cowboy style the best predictor of success was always the quality of people on the team.</p>
+
+<p>Finally there’s a focus on delivering value to the customer over short term gains or cool new research. At the end of the day ThoughtWorks exists because it has clients who need software delivered.</p>
+
+<p>This is a great starting set of values for even an internal IT development group who really wants to envision high quality and performance. It makes writing a departmental charter easy and conveys the critical values in a highly meaningful way.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2009/05/02/first-impressions-on-cucumber/" rel="bookmark">First Impressions on Cucumber
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2009-05-02T20:47:25+00:00">May 2, 2009</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>Recently I’ve been catching up with the Ruby world again in my limited spare time. I had an idea for a fun little hobby project, but I wanted to actually do it BDD style and in Rails 2. I dug a bit into RSpec again and realized they had a new BDD tool called <a href="http://cukes.info/">Cucumber</a>. Seeing there was a beta book out from the prags I paid and downloaded the PDF copy of ‘<a href="http://www.pragprog.com/titles/achbd/the-rspec-book">The RSpec Book: Behavior Driven Development with RSpec, Cucumber, and Friends</a>‘.</p>
+
+<p>Cucumber takes plain text scenarios and runs defined steps to verify the scenarios are working. The idea is Cucumber describes the higher level behavior with more of an outside that application focus and RSpec is used to test the behavior of the individual components. There seems to be some overlap, but it modifies the traditional Red-Green-Refactor into:</p>
+
+<ol>
+  <li><strong>Cucumber</strong>: Focus on one scenario.</li>
+  <li><strong>Cucumber</strong>: Write failing step definition.</li>
+  <li><strong>RSpec</strong>: Write a failing spec.</li>
+  <li><strong>RSpec</strong>: Get the spec to pass.</li>
+  <li><strong>RSpec</strong>: Refactor.</li>
+  <li><strong>Cucumber</strong>: Refactor.</li>
+</ol>
+
+<p>I worked through the tutorial that involves the classic 70s game MasterMind. (I suspect Dave Astels at work there.) I like the textual description similar to FIT/Fitnesse without so many tables. The feature descriptions are in plain English with a few grammatically important keywords:</p>
+
+<div>
+  <img src="/images/cucumber_features.jpg" />
+</div>
+
+<p>Next you take the Given, When, Then, And syntax and build out the steps one at a time diving back and forth into RSpec when you get down to the lower level details.</p>
+
+<div>
+  <img src="/images/cucumber_steps.jpg" />
+</div>
+
+<p>I find the regular expressions a bit jarring, but just like FIT/Fitnesse this is the code that the business users never see. If your lucky you’re testers can read the code and even key off for ideas to use for exploratory testing ideas. The only other item is I always feel more comfortable just dropping back to an xUnit type testing tool and using good practices to give the tests meaningful names and organize scenario testing appropriately. In some ways you could use just RSpec as well for this purpose. Still I’m forcing myself to use it for a while as any new practice takes some getting used to. Next up is integrating it with Rails.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2009/04/28/compromising-quality-for-schedule/" rel="bookmark">Compromising Quality for Schedule
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2009-04-28T05:12:21+00:00">April 28, 2009</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>I found myself silently cheering for Uncle Bob as he described a recent presentation where the speaker had just about given up on ever getting better code quality, because businesses didn’t value it.</p>
+
+<blockquote>
+  <p>His claim that crappy code is inevitable is based on the notion that crappy code is cheaper than clean code, and that therefore businesses will demand the crap every time. But it has generally not been business that has demanded crappy code. Rather it has been developers who mistakenly thought that the business’ need for speed meant that they had to produce crappy code. Once we, as professional developers, realize that the only way to go fast is to create clean and well designed code, then we will see the business’ need for speed as a demand for high quality code.</p>
+
+  <p>— <a href="http://blog.objectmentor.com/articles/2009/04/23/crap-code-inevitable-rumblings-from-accu">Bob Martin</a></p>
+</blockquote>
+
+<p>Ken Schwaber makes a similar point that dropping code quality to make a date devalues a core asset of your company, the code base. As a line employee you don’t have the authority to even consider making that decision.</p>
+
+<p>I’ve always found this to be a compelling argument for code quality. If your organization has headed down this path for long your code base is a mess. Sacrificing quality for perceived speed to hit a date is a bad practice. Most of the code base is painful even to look at. Maintenance sucks up your limited developer time. There are hidden costs even with new enhancements since small changes can take weeks as a developer digs into the spaghetti code by hand on code that rarely even has the start of a test harness.</p>
+
+<p>The difficulty of course is this is a common method of operation. The PM informs a developer of some date in the future that they need this new critical enhancement. The developer may bravely say that the date isn’t reasonable. More pressure is applied to find a way to make it work. Well, there might be a way let me get back to you.</p>
+
+<p>The developer sends an email a little later explaining that they’ll do their best and they think they can get the feature done. What they don’t explain is:</p>
+
+<ul>
+  <li>To get this done in time I’m probably not going to add any tests.</li>
+  <li>I don’t have time to refactor so I’ll probably add more lines to some of the system’s giant classes and mix business logic into the view and controller layer.</li>
+  <li>I may have to work some late hours, I’ll be tired and inject new bugs due to this.</li>
+  <li>I’ll do a bit of manual unit testing and declare it done well enough to push over to QA. In reality I know it has lots of bugs, but I met the date.</li>
+  <li>The next developer who takes on code here will spend even more time trying to figure out the code I added.</li>
+  <li>I met the date, but I feel guilty over once again compromising on my own personal standards of quality.</li>
+</ul>
+
+<p>Here’s to hoping Uncle Bob’s vision wins out.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2009/04/22/ruby-on-rails-site-down/" rel="bookmark">Ruby On Rails Site Down
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2009-04-22T18:54:13+00:00">April 22, 2009</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <div align="center">
+  <img src="/images/rubyonrails.jpg" />
+</div>
+
+<p>I hopped over to <a href="http://rubyonrails.org">http://rubyonrails.org</a> about 7:40pm PST and found this surprise. After a few tries I confirmed it looks like they there’s a real issue. This is decidedly not what I was expecting. Hopefully it’s fixed soon.</p>
+
+  </div>
+</article>
+
+
+
+<!-- Pagination links -->
+<nav class="pager">
+  <ul>
+    <!-- Page: 18 of 151 -->
+    
+      <li><a href="/page17/" class="previous"><span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="430 -22.8 16 16"><path d="M433.4-15.7c-.2.2-.4.5-.4.9 0 .3.1.6.4.9l6.7 6.7c.2.3.5.4.9.4.3 0 .6-.1.9-.4l.8-.8c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-5-5 5-5c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-.8-.8c-.2-.3-.5-.4-.9-.4-.3 0-.7.1-.9.4l-6.7 6.7z"/></svg></span> Newer</a></li>
+    
+    
+      <li><a href="/page19/" class="next">Older <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></li>
+    
+  </ul>
+</nav>
+        
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2020 Musings of a Software Development Manager.</p>
+      
+    </div>
+  </div>
+</footer>
+
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+<script async src="/assets/javascripts/main.js"></script>
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.3.1
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE.md
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <title>Musings of a Software Development Manager</title>
+    <meta name="description" content="lessons learned managing developers">
+    <link rel="canonical" href="https://edgibbs.com/page42/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Musings of a Software Development Manager" href="/feed.xml">
+  
+</head>
+
+
+  <body class="layout--home ">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/archive.html" itemprop="url">
+            <span itemprop="name">Archive</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/bio.html" itemprop="url">
+            <span itemprop="name">Bio</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/junit-4-with-hamcrest.html" itemprop="url">
+            <span itemprop="name">JUnit 4 with Hamcrest</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/spock-intro-a-bdd-testing-framework-in-groovy.html" itemprop="url">
+            <span itemprop="name">Spock Intro</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:edward_gibbs@yahoo.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/edgibbs">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://twitter.com/edward_gibbs">
+  <span class="icon icon--twitter"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z" fill-rule="nonzero"/></svg></span>
+  <span class="label">Twitter</span>
+</a>
+</li>
+  
+
+  <li>
+    
+      <a href="/feed.xml" title="Atom Feed">
+        <span class="icon icon--rss"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194 11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0 13.806c0-1.21.983-2.195 2.194-2.195zM10.606 16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"/></svg></span>
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/images/avatar.jpg" alt="" class="site-logo">
+            <span>Musings of a Software Development Manager</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+    <div></div>
+
+    <div>
+      <div class="entries">
+        
+          
+          
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/04/29/half-use-websphere-and-no-one-by-choice/" rel="bookmark">Half Use Websphere and No One By Choice
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-04-29T14:47:10+00:00">April 29, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <blockquote>
+  <p>Banks don’t like being dependent on any one particular thing. They like to have a lot of options. Typically, we’ll roll out WebLogic, but we’ll also have JBoss on the side. Who uses Weblogic? IBM Websphere? Anybody use Websphere by choice? No hands at t’all, (Laughter from the audience) I like that one. So for the benefit of the camera half use Websphere and no one uses it by choice.</p>
+
+  <p>— John Davies</p>
+</blockquote>
+
+<blockquote>
+  <p>— <a href="http://www.bejug.org/confluenceBeJUG/display/PARLEYS/ESBs+in+the+Investment+Banks?showComments=true">Talk on ESBs in the Investment Banks</a></p>
+</blockquote>
+
+<p>I sense a wave of disillusionment with IBM Websphere that threatens to end their dominance in commercial application servers. Weblogic has always had a it’s share of detractors and quite a few people get annoyed with the marketing politics of JBoss. Still you can easily find lots of developers who would admit to using either one by choice.</p>
+
+<p>With the application server moving towards more of a commodity item easily dominated by open source competitors like JBoss, Glassfish or even a simple Tomcat server can Websphere sustain charging for enterprise software rates for the Webshpere platform? Not really a sustainable model, though they really make their money in professional services so maybe they’re not that concerned.</p>
+
+<p>And John Davies isn’t some Web 2.0 type. He’s worked for over 20 years in ever so Enterprisey investment banking. He is CTO and co-founder of <a href="http://www.c24.biz/">C24</a>.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/04/26/2nd-annual-silicon-valley-ruby-conference-thoughts/" rel="bookmark">2nd Annual Silicon Valley Ruby Conference Thoughts
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-04-26T21:45:38+00:00">April 26, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p><img src="/images/ruby_conference_badge.jpg" alt="" /></p>
+
+<p>Two days at the San Jose Tech Museum hearing about Ruby rejuvenated the old cranium. Just in time since I had spent the previous day doing about 14 hours of troubleshooting on some Enterprise software.</p>
+
+<p>The conference had somewhere above 100 attendees (I didn’t count). It was all in one big hall on the first floor of the Tech. The chairs, well they were bad and know tables to drop a laptop. Still for about $250 for two days I can’t complain too much about the chairs.</p>
+
+<p>The talks ranged from Ruby testing techniques and libraries to IDEs and even into a good bit of depth on VMs and compilers since there were talks on Rubinius and JRuby. At least 10 people in the room had open positions and if you’re a Ruby developer now there’s little chance you can’t find lots of work in Silicon Valley. A decent portion of the audience even had at least one patent.</p>
+
+<p>As a manager dealing day to day with the Java world I felt in over my head as far as Ruby expertise, and it was great. When I go to more general software conferences or Java talks I often get less out of them because I have a lot of experience. Here I was in the bottom third of the class and it was nice. Everything is still shiny and new.</p>
+
+<p>Since there was only one track you didn’t have to do any deciding and walk out of a session feeling like you made a mistake. Another nice part was most of the presenters were very focused and often finished ahead of there hour or so. Instead of sort of filling the time up they generally gave up the floor for lightning talks or answered questions. The self-organization was evident.</p>
+
+<p>Coming down from Sacramento the drive was reasonable, and I just crashed at a $80 hotel room Saturday and headed home Sunday afternoon. Given a really long week at work I didn’t have as much energy as I usually do for socializing, but I did manage to spend some time talking to <a href="http://www.xpasc.com/cary.html">Cary Campbell</a> of <a href="http://www.xpasc.com/Ccbro.html">Codecraft</a>. He was trying to get up to speed on Ruby on Rails since he’d spent a lot of time at IBM, 37 years, and the last 15 with embedded systems. He had a great story about setting up a lot of tests based on specs. It sounded like the tests were all written first and then the software was added until all the tests pass. Sort of big test design up front. They were going to use Rails so management could see web reports. Right now if you’re not starting with any legacy web baggage Rails is a great option.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/04/23/josh-susser-on-contributing-to-rails/" rel="bookmark">Josh Susser on Contributing to Rails
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-04-23T21:27:01+00:00">April 23, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p><a href="http://blog.hasmanythrough.com/">Josh Susser</a> gave a pointed talk on how you can contribute to Rails, or really any other open source project for that matter.</p>
+
+<p><strong>Why Contribute?</strong></p>
+
+<p>Maybe there’s the guilt associated with the freeloader effect that drives you to contribute. Guilt is never the strongest motivation though. Better motivations include getting some measure of control over a piece of software. You can fix your own bugs and contribute patches. Finally, the cool reason–cred. With credibility people start listening to you and eventually you get things like book offers and job offers.</p>
+
+<p><strong>Where to Start</strong></p>
+
+<ul>
+  <li>Start with the <a href="http://dev.rubyonrails.org">Trac site</a> for rails.</li>
+  <li>Follow the rails core discussion <a href="http://groups.google.com/group/rubyonrails-core/">list</a>.</li>
+  <li>Documentation is a great place to start.</li>
+  <li>Tests, more tests are always needed.</li>
+  <li>You can write a test around a bug and submit it. Maybe someone else will write the code to fix it.</li>
+  <li>
+    <p>Then you can always write code.</p>
+  </li>
+  <li>New code is glamourous, but not the best starting point.</li>
+  <li>Better to start with bug fixes.</li>
+  <li>Move on to plugins, generators, tasks, etc.</li>
+  <li>Maybe then an enhancement.</li>
+</ul>
+
+<p><strong>The How</strong></p>
+
+<p>Start with setting up a rails development environment. Then pull down rails from the trunk:</p>
+
+<pre>$ svn co "http://svn.rubyonrails.org/rails/trunk" rails</pre>
+
+<p>Next setup the test database for ActiveRecord and possibly others and read RUNNING_UNIT_TESTS. Run tests before any changes. Then run tests after every change. Start writing tests first. The tests in rails could do with a lot of refactoring, and Josh mentioned there was a good opportunity for contribution there. Remember to follow the Rails style guidelines. Then document what you do with RDoc and inline comments. Again, tests must pass and docs must build.</p>
+
+<p><strong>The Patch</strong></p>
+
+<ul>
+  <li>Generate the patch file</li>
+</ul>
+<pre>$ svn diff &gt; well_named_patch.diff</pre>
+
+<ul>
+  <li>Look at the diff file in TextMate or some IDE. There should probably be a lot more test code and documentation then actual application code in the diff file.</li>
+  <li>Open a <a href="http://dev.rubyonrails.org/newticket">ticket</a> on the trac site.</li>
+  <li>Start the summary with [PATCH].</li>
+  <li>Upload the diff file, don’t paste it.</li>
+  <li>Describe problem and solution, show usage.</li>
+  <li>
+    <p>Use Keywords: doc, test, tiny</p>
+  </li>
+  <li>doc – patches that are just documentation</li>
+  <li>test – patches that are just test</li>
+  <li>
+    <p>tiny – small changes, probably only one file</p>
+  </li>
+  <li>Then practice being patient.</li>
+  <li>Lots of patches are sitting in Rails Trac for a long time.</li>
+  <li>Smaller changes are easier to get accepted.</li>
+  <li>Use tiny keyword.</li>
+  <li>If you have a big patch, discuss on rails-core list first. Try out patch as plug-n it makes it easy to check the stability.</li>
+</ul>
+
+<p><strong>Other Things You Can Do</strong></p>
+
+<ul>
+  <li>Room for lots of different types of contributions. Can do some grooming on the wiki.</li>
+  <li>Respond to updates to your ticket.</li>
+  <li>Check the rails irc channel at #rubyonrails at irc.freenode.net</li>
+  <li>Keep a blog. Everyone who contributes has a blog of some sort.</li>
+  <li>Look at open bugs if you don’t have anything you want to change in rails right now.</li>
+</ul>
+
+<p>The talk finished up with some questions. One attendee mentioned that in their shop they have new developers just cruise through rails and contribute patches for the first month or two before they really put them on projects, so they can get really familiar with rails and help out at the same time. And Josh explained that PDI (Please Do Investigate) is not a brush off from the core team. Instead it’s a small compliment that someone thinks it’s interesting, and please go make it happen.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/04/22/twitter-is-udp/" rel="bookmark">Twitter is UDP
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-04-22T19:58:56+00:00">April 22, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <blockquote>
+  <p>Someone asked me if Twitter was TCP or UDP. UDP, it’s definately UDP. I can’t talk about the numbers, but UDP.</p>
+
+  <p>– Blaine Cook</p>
+</blockquote>
+
+<blockquote>
+  <p>Scaling Twitter talk at 2nd Annual Silicon Valley Ruby Conference</p>
+</blockquote>
+
+<p><a href="http://romeda.org/">Blaine</a> talked about dealing with traffic on the busiest Rails based site. His comment was related to their use of <a href="http://www.chadfowler.com/ruby/drb.html">DRB and Rinda</a>, a distributed object system for ruby, basically RMI. Apparently <a href="http://twitter.com/">Twitter</a> has been getting so much traffic at times that there’s no way it’s going to catch up, so the solution was to just drop the queue when it got too big since it wasn’t going to catch up anyway. A purely pragmatic approach for a very popular site experiencing growing pains.</p>
+
+<p>(The conference was pretty great and I’ll probably be culling posts from my notes for the next week or so. The slides from Blaine Cook’s talk can be found on <a href="http://www.slideshare.net/Blaine/scaling-twitter/">Slideshare</a>.)</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2007/04/21/full-stack-web-app-testing-with-selenium-and-rails/" rel="bookmark">Full Stack Web App Testing with Selenium and Rails
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2007-04-21T21:03:58+00:00">April 21, 2007</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p><a href="http://purpletech.com/content/">Alex Chafee</a> and Brian Takita of <a href="http://www.pivotallabs.com/">Pivotal Labs</a> mix regular rails tests including fixtures with Selenium tests for a full stack test in one. They kicked off the <a href="http://www.sdforum.org/SDForum/Templates/CalendarEvent.aspx?CID=2135&amp;mo=4&amp;yr=2007">2nd Annual Silicon Valley Ruby Conference</a> in style with a focus on testing. Few thought it odd to be talking about testing early in the morning. Rails of course bakes testing in and you almost have to work to avoid it. Selenium isn’t drop dead obvious though especially since you can so easily test a lot of the web tier through functional and integration tests in rails controllers. When Alex Chafee asked for a show of hands a good number of the 100 or so attendees had used it, but very few were using it at work.</p>
+
+<p>The approach is pretty simple:</p>
+
+<ul>
+  <li>You need to test your view layer partially because of all the AJAX going on their and partially because it doesn’t really work unless it works in an end users version of IE.</li>
+  <li>Since you have access to rails and you can write the Selenium tests in Ruby, just go ahead and mix the two.</li>
+  <li>You can use fixtures for Selenium tests.</li>
+  <li>You can almost produce a DSL with the Selium tests for the customer.</li>
+  <li>Since many of the tests will take a while you should hook them up to your continuous build boxes. (They run Mac minis with Parallels and Windows and Linux installed so they can test three platforms at once.)</li>
+</ul>
+
+<p>They had some lessons learned to pass on:</p>
+
+<ul>
+  <li>It helps to check the page title on every page to ensure you’re actually navigating somewhere.</li>
+  <li>To handle AJAX you probably need to resort to polling. They use a default timeout of 20 seconds.</li>
+  <li>Remember to refactor out common code to create sort of a DSL.</li>
+  <li>Tests are more legible if you use literal strings for many of the parameters.</li>
+  <li>Long test methods are good in Selenium because you want to touch large swaths of the code.</li>
+  <li>Rarely use Selenium IDE for doing any recording.</li>
+  <li>You probably need to disable transactional fixtures for Selenium tests.</li>
+</ul>
+
+<p>And finally they should have some rake integration code around this available soon as open source.</p>
+
+  </div>
+</article>
+
+
+
+<!-- Pagination links -->
+<nav class="pager">
+  <ul>
+    <!-- Page: 42 of 151 -->
+    
+      <li><a href="/page41/" class="previous"><span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="430 -22.8 16 16"><path d="M433.4-15.7c-.2.2-.4.5-.4.9 0 .3.1.6.4.9l6.7 6.7c.2.3.5.4.9.4.3 0 .6-.1.9-.4l.8-.8c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-5-5 5-5c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-.8-.8c-.2-.3-.5-.4-.9-.4-.3 0-.7.1-.9.4l-6.7 6.7z"/></svg></span> Newer</a></li>
+    
+    
+      <li><a href="/page43/" class="next">Older <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></li>
+    
+  </ul>
+</nav>
+        
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2020 Musings of a Software Development Manager.</p>
+      
+    </div>
+  </div>
+</footer>
+
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+<script async src="/assets/javascripts/main.js"></script>
+
+
+
+
+  </body>
+
+</html>

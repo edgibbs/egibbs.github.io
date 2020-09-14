@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://edgibbs.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://edgibbs.com/" rel="alternate" type="text/html" /><updated>2020-09-14T02:00:07+00:00</updated><id>https://edgibbs.com/feed.xml</id><title type="html">Musings of a Software Development Manager</title><subtitle>lessons learned managing developers</subtitle><author><name>Ed Gibbs</name></author><entry><title type="html">RSpec Instance Double With Class Names</title><link href="https://edgibbs.com/2020/07/11/rspec-instance-double-with-class-names/" rel="alternate" type="text/html" title="RSpec Instance Double With Class Names" /><published>2020-09-13T00:00:00+00:00</published><updated>2020-09-13T00:00:00+00:00</updated><id>https://edgibbs.com/2020/07/11/rspec-instance-double-with-constants</id><content type="html" xml:base="https://edgibbs.com/2020/07/11/rspec-instance-double-with-class-names/">&lt;p&gt;After many years working with RSpec I discovered a nice little feature and a small gotcha with instance doubles.
+I’ve used &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance_double&lt;/code&gt; since before it was ported from &lt;a href=&quot;https://github.com/xaviershay/rspec-fire&quot;&gt;rspec-fire&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My practice and all the current Relish RSpec examples of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance_double&lt;/code&gt; use the following format:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance_double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Users::PublicPolicy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It turns out the actual &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance_double()&lt;/code&gt; method takes a string representing the class or just the class constant:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;instance_double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doubled_class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And the important part here is the parameter:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;doubled_class(String, Class)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;No String is required here and class constants are auto-verifying. According to a long discussion
+on &lt;a href=&quot;https://github.com/rspec/rspec-mocks/issues/842&quot;&gt;rspec-mocks&lt;/a&gt; this behavior exists to avoid some
+auto-loading of classes that aren’t needed so that tests can be a bit faster in some cases. For me this breaks
+the expectation that I the mock is actually verifying that the class and methods actually exist. If I
+wanted just a pure mock I could just use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;double&lt;/code&gt;.  And for Rails projects that make up a lot of the day to day
+paid developer work everything auto-loads anyway. Using class constants is just simpler. If you’re on a legacy
+project you can probably just add the config to verify the strings ahead of time anyway with the following:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mock_with&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:rspec&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;mocks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;verify_doubled_constant_names&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This example code shows what happens when you make a typo in the string constant name and you don’t have the config to verify set:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'spec_helper'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require_relative&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'../../lib/users/policy_enforcer'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require_relative&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'../../lib/users/public_policy'&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;RSpec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PolicyEnforcer&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'#allowed?'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:policy_enforcer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PolicyEnforcer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'with correct string instance_double class constant'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance_double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Users::PublicPolicy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'returns true'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;policy_enforcer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;allowed?&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'with typo string instance_double class constant'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance_double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Use::PublicPolicy'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'lies and returns true'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;policy_enforcer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;allowed?&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'with a proper class constant instance_double'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance_double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Users&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PublicPolicy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'returns true'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;policy_enforcer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;allowed?&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'with an typoed class constant instance_double'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance_double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:PublicPolicy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'fails because the constant is not defined'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;policy_enforcer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;allowed?&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;public_policy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:allowed?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The result is the spec &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;with typo string instance double class constant&lt;/code&gt; on line 22 lies to you.  It behaves like a plain old double and allows you to accept methods on classes that don’t exist.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;Users::PolicyEnforcer
+  &lt;span class=&quot;c&quot;&gt;#allowed?&lt;/span&gt;
+    with correct string instance_double class constant
+      returns &lt;span class=&quot;nb&quot;&gt;true
+    &lt;/span&gt;with typo string instance_double class constant
+      lies and returns &lt;span class=&quot;nb&quot;&gt;true
+    &lt;/span&gt;with a proper class constant instance_double
+      returns &lt;span class=&quot;nb&quot;&gt;true
+    &lt;/span&gt;with an typoed class constant instance_double
+      fails because the constant is not defined &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;FAILED - 1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+Failures:
+
+  1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Users::PolicyEnforcer#allowed? with an typoed class constant instance_double fails because the constant isn not defined
+     Failure/Error: &lt;span class=&quot;nb&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;:public_policy&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; instance_double&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;User:PublicPolicy&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+     NameError:
+       uninitialized constant PublicPolicy
+     &lt;span class=&quot;c&quot;&gt;# ./spec/users/policy_enforcer_spec.rb:49:in `block (4 levels) in &amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+     &lt;span class=&quot;c&quot;&gt;# ./spec/users/policy_enforcer_spec.rb:52:in `block (4 levels) in &amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+
+Finished &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;0.0175 seconds &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;files took 0.45833 seconds to load&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+4 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/users/policy_enforcer_spec.rb:55 &lt;span class=&quot;c&quot;&gt;# Users::PolicyEnforcer#allowed? with an typoed class constant instance_double fails because the constant isn not&lt;/span&gt;
+ defined&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>Ed Gibbs</name></author><category term="software development" /><category term="ruby" /><category term="test driven development" /><summary type="html">After many years working with RSpec I discovered a nice little feature and a small gotcha with instance doubles. I’ve used instance_double since before it was ported from rspec-fire.</summary></entry><entry><title type="html">More Testable Rake Tasks</title><link href="https://edgibbs.com/2020/02/9/more-testable-rake-tasks/" rel="alternate" type="text/html" title="More Testable Rake Tasks" /><published>2020-02-09T00:00:00+00:00</published><updated>2020-02-09T00:00:00+00:00</updated><id>https://edgibbs.com/2020/02/9/more-testable-rake-tasks</id><content type="html" xml:base="https://edgibbs.com/2020/02/9/more-testable-rake-tasks/">&lt;p&gt;A few months ago I had a brief pairing session where I attempted to help another
+developer with getting some working tests around a rake task they had created.
+They were having issues testing within rake and executing tasks which is a
+common issue in rake testing.  My suggesion was to build the entire logic of the
+task in a PORO to avoid the pain of testing rake plumbing.&lt;/p&gt;
+
+&lt;p&gt;The approach takes the following steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create a spec file to test the new class&lt;/li&gt;
+  &lt;li&gt;Create a class that handles doing the thing&lt;/li&gt;
+  &lt;li&gt;Create a spec file for the rake task&lt;/li&gt;
+  &lt;li&gt;Add the rake task and defer everything to the new class&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For this example say you have some rake task that should just return the current
+versions of ruby and bundler locally.  Not super useful, but it will involve executing
+some local commands.  We want to be able to run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;rake display_versions&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And have it dump out:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;Gathering versions
+Ruby VERSION: ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-darwin19]
+Bundler VERSION: Bundler version 2.1.4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Instead of diving in and just doing all the logic in rake and having to figure out
+how to test it in that context, we start with the class that we want to build the
+results, say &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VersionDisplayer&lt;/code&gt;, and we start with the spec:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;require_relative&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'version_displayer'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;VersionDisplayer&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'#display'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:version_displayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;VersionDisplayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:expected_output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;~&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;OUTPUT&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;
+        Gathering versions
+        Ruby VERSION: ruby 2.7.0
+        Bundler VERSION: bundler 2.0
+&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;      OUTPUT&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Open3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:capture2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ruby --version'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;and_return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ruby 2.7.0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Open3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:capture2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'bundler --version'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;and_return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'bundler 2.0'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'returns the current bundler and ruby version'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version_displayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;display&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expected_output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_stdout&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This leads us to the VersionDisplayer class that satisfies the spec:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'open3'&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;VersionDisplayer&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;display&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Gathering versions&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ruby_version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Open3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;capture2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ruby --version'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;bundler_version&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Open3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;capture2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'bundler --version'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ruby VERSION: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby_version&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Bundler VERSION: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bundler_version&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now we can write a simple rake integration spec:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'rake'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;':display_versions'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:version_displayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;instance_double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'VersionDisplayer'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;expand_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Rakefile'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;VersionDisplayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;and_return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version_displayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;allow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version_displayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;no_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uses version displayer to output the version information'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
+    &lt;span class=&quot;no&quot;&gt;Rake&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'display_versions'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;invoke&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;version_displayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;no_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And finally we a simple rake task that delegates all everything:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;require_relative&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'version_displayer'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Displays versions of bundler and ruby'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:display_versions&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;VersionDisplayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;display&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I much prefer this to embedding the logic in the rake task and writing
+complex tests around the rake context.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="software development" /><category term="ruby" /><category term="test driven development" /><summary type="html">A few months ago I had a brief pairing session where I attempted to help another developer with getting some working tests around a rake task they had created. They were having issues testing within rake and executing tasks which is a common issue in rake testing. My suggesion was to build the entire logic of the task in a PORO to avoid the pain of testing rake plumbing.</summary></entry><entry><title type="html">Configuring Jenkins Properties As Code</title><link href="https://edgibbs.com/2019/07/14/configuring-jenkins-properties/" rel="alternate" type="text/html" title="Configuring Jenkins Properties As Code" /><published>2019-07-14T00:00:00+00:00</published><updated>2019-07-14T00:00:00+00:00</updated><id>https://edgibbs.com/2019/07/14/configuring-jenkins-properties</id><content type="html" xml:base="https://edgibbs.com/2019/07/14/configuring-jenkins-properties/">&lt;p&gt;Jenkins appears to be the single most popular CI/CD tool despite its age and corresponding legacy tradeoffs.
+When I landed on the State of &lt;a href=&quot;https://cwds.ca.gov&quot;&gt;California’s Child Welfare project&lt;/a&gt; Jenkins was already the default option.
+I brushed up on the new features since I had largely missed out on the new pipeline features with an actual
+code as configuration option that was added to Jenkins around 2016.&lt;/p&gt;
+
+&lt;p&gt;We moved to the state’s infrastructure and Jenkins server by making heavy use of Jenkinsfiles and a few triggering
+plugins like &lt;a href=&quot;https://wiki.jenkins.io/display/JENKINS/GitHub+pull+request+builder+plugin&quot;&gt;Github Pull Request Builder&lt;/a&gt;
+and the &lt;a href=&quot;https://wiki.jenkins.io/display/JENKINS/Generic+Webhook+Trigger+Plugin&quot;&gt;Generic Webhook Trigger&lt;/a&gt;.  Later in the project, I volunteered to lead the
+pipeline team to ‘Automate All the Things’. Eventually, we experimented with writing Jenkins Shared Libraries which is a
+somewhat clunky way to share code between Jenkinsfiles without breaking down and writing whole Jenkins plugins.
+After some early successes, we eventually moved to write a significant library of shared steps which were then used
+on dozens of the organization’s projects.&lt;/p&gt;
+
+&lt;p&gt;After a time it occurred to me that we could embed many of the settings in the projects that were a pain to set up in the GUI from
+within a shared library custom step.  One of the most elaborate plugins to configure was Github PullRequestBuilder, but we were
+eventually able to capture all of its settings in a fairly simple step.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'buildNode'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;triggerProperties&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;githubPullRequestBuilderTriggerProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;([&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pipelineTriggers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triggerProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Under the covers it sets up an Frankenstien sort of object:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.jenkinsci.plugins.ghprb.GhprbTrigger'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;spec:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'H/5 * * * *'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;configVersion:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;allowMembersOfWhitelistedOrgsAsAdmin:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;orgslist:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ca-cwds'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;cron:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'H/5 * * * *'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;onlyTriggerPhrase:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;useGitHubHooks:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;permitAll:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;autoCloseFailedPullRequests:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;displayBuildErrorsOnDownstreamBuilds:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;triggerPhrase:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'retest this please'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;skipBuildPhrase:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.*\\[skip\\W+ci\\].*'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;extensions:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.jenkinsci.plugins.ghprb.extensions.build.GhprbCancelBuildsOnUpdate'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;nl&quot;&gt;overrideGlobal:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;],&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.jenkinsci.plugins.ghprb.extensions.status.GhprbSimpleStatus'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;nl&quot;&gt;commitStatusContext:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Pull Request Testing'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;nl&quot;&gt;statusUrl:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'https://jenkins.example.com'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;nl&quot;&gt;addTestResults:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;nl&quot;&gt;completedStatus:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+                      &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;nl&quot;&gt;message:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Success'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;nl&quot;&gt;result:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'SUCCESS'&lt;/span&gt;
+                      &lt;span class=&quot;o&quot;&gt;],&lt;/span&gt;
+                      &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;nl&quot;&gt;message:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Build Failed'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;nl&quot;&gt;result:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'FAILURE'&lt;/span&gt;
+                      &lt;span class=&quot;o&quot;&gt;],&lt;/span&gt;
+                      &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;$class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;nl&quot;&gt;message:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Build Error'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;nl&quot;&gt;result:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ERROR'&lt;/span&gt;
+                      &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+                  &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This saved significant time for any team trying to set up their first pull-request based build in their Jenkinsfile, as
+they no longer had to figure out all of the boxes to check and text fields to fill out.  So if you’re just getting started
+trying to reuse code among Jenkinfiles don’t forget the option of embedding complex config as well.&lt;/p&gt;
+
+&lt;p&gt;Notes:&lt;/p&gt;
+
+&lt;p&gt;We’ve pulled in three things now Jenkins Github plugin, GHPRB, Generic Webhook Trigger.
+Had to deal with them as steps.
+Eventual goal is to move all config out of Jenkins into code.
+Unfortunate bootstrap issue especially with triggers, or a first time project.
+Jenkins X is supposed to provide some of this functionality.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="software development" /><category term="automated builds" /><summary type="html">Jenkins appears to be the single most popular CI/CD tool despite its age and corresponding legacy tradeoffs. When I landed on the State of California’s Child Welfare project Jenkins was already the default option. I brushed up on the new features since I had largely missed out on the new pipeline features with an actual code as configuration option that was added to Jenkins around 2016.</summary></entry><entry><title type="html">Evaluating Concourse CI</title><link href="https://edgibbs.com/2019/01/13/concourse-ci-eval/" rel="alternate" type="text/html" title="Evaluating Concourse CI" /><published>2019-01-13T00:00:00+00:00</published><updated>2019-01-13T00:00:00+00:00</updated><id>https://edgibbs.com/2019/01/13/concourse-ci-eval</id><content type="html" xml:base="https://edgibbs.com/2019/01/13/concourse-ci-eval/">&lt;p&gt;Over the holidays I had a chance to do a review of the CI options out there. I’m more than happy with something like Travis, and
+I’ve often said Jenkins is the Wordpress of CI Servers even though I’ve used it now for the bulk of my career.  Currently, I’m working
+on building out a full production pipeline for the State of California where we are attempting to be transparent and use AGPL 3.0 for all of
+our code.  That pretty much eliminated Travis CI, Codeship, and Circle CI.  I realize they’re free for open source projects in general, but
+suffice it to say that getting a SASS solution, even a free one approved with some level of access to our Github organization is a tall order
+with the existing policies in place.  So self-hosted open source was going to be our options.&lt;/p&gt;
+
+&lt;p&gt;So one of our options was &lt;a href=&quot;https://concourse-ci.org&quot;&gt;Concourse CI&lt;/a&gt;, so I sat down with several hours to dive in and take a good look at it.&lt;/p&gt;
+
+&lt;p&gt;There is a lengthy &lt;a href=&quot;https://concoursetutorial.com&quot;&gt;tutorial&lt;/a&gt; put out by some developers from &lt;a href=&quot;https://starkandwayne.com&quot;&gt;Stark and Wayne&lt;/a&gt;. The
+tutorial gives you a good sense of how it would be to use Concourse CI. I did find a few stumbling blocks running through it:&lt;/p&gt;
+
+&lt;h3 id=&quot;fly-install&quot;&gt;Fly Install&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://concoursetutorial.com&quot;&gt;Introduction&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There isn’t a convenient brew install, so I had to go looking for this command to install instead. (You can download from the initial docker container,
+but it downloaded a strange fly.dms file for me, and I found it easier to download and install directly.)&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-Lo&lt;/span&gt; fly https://github.com/concourse/concourse/releases/download/v4.2.2/fly_darwin_amd64 &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +x fly &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;mv &lt;/span&gt;fly /usr/local/bin/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h3 id=&quot;private-keys&quot;&gt;Private Keys&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://concoursetutorial.com/basics/publishing-outputs/&quot;&gt;Publishing Outputs&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The tutorial step where you publish outputs involves putting private keys in your pipeline.yml file which feels terrible. I was able to swap
+it out to use a personal access token on GitHub by switching the out the :uri under the git resource for username and password where password is
+just the reference to the personal access token. I was surprised to see the use of private keys at all in the tutorial. I also made sure
+to lock down the token to only be able to create gists since this tutorial step updates a particular gist.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Original Config&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;resource-gist&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git@gist.github.com:e028e491e42b9fb08447a3bafcf884e5.git&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;private_key&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;|-&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;-----BEGIN RSA PRIVATE KEY-----&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;MIIEpQIBAAKCAQEAuvUl9YU...&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;...&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;HBstYQubAQy4oAEHu8osRhH...&lt;/span&gt;
+      &lt;span class=&quot;s&quot;&gt;-----END RSA PRIVATE KEY-----&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Config With Personal Access Token&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;resource-gist&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;git&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://gist.github.com/e028e491e42b9fb08447a3bafcf884e5.git&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;branch&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;master&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;edgibbs&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ddf78dffcaf4398bec2323&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;credhub&quot;&gt;CredHub&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://concoursetutorial.com/basics/secret-parameters/&quot;&gt;Secrets With Credentials Manager&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After the step of making sure I had an up to date VirtualBox and cloning Stark and Wayne’s CLI &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bucc&lt;/code&gt;, it
+failed right away. They have a note about needing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;direnv&lt;/code&gt;, but I had to do a bit more config with it:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'eval &quot;$(./bin/bucc env)&quot;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; .envrc
+brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;direnv
+direnv allow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Despite these few missteps I was able to work my way through the tutorial and get an overall impression.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+
+&lt;h2 id=&quot;overall-architecture&quot;&gt;Overall Architecture&lt;/h2&gt;
+
+&lt;p&gt;Under the covers Concourse relies on three main parts:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A master server, the ATC or air traffic controller that is the heart of concourse&lt;/li&gt;
+  &lt;li&gt;The TSA which is an ssh server for registering workers with the ATC&lt;/li&gt;
+  &lt;li&gt;Postgres for storing persistent data&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A pipeline in Concourse also has three main items:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Resources are things like git, artifact creation, or Slack&lt;/li&gt;
+  &lt;li&gt;Resource types are custom resources that you can define or use other community contributed resources&lt;/li&gt;
+  &lt;li&gt;Jobs are where the work of the pipeline happens&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In contrast with Jenkins, there is a UI with the TSA, but it is used only for reporting or potentially
+kicking off jobs.  The main interface is the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fly&lt;/code&gt; CLI. And everything essentially runs inside containers like
+Docker.&lt;/p&gt;
+
+&lt;h2 id=&quot;impressions&quot;&gt;Impressions&lt;/h2&gt;
+
+&lt;p&gt;Much of the workflow derives from the CLI, and pipelines are first class citizens. The ability to test
+out a pipeline locally with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fly&lt;/code&gt; is way ahead of setting up something like Jenkins especially if your organization
+uses a lot of plugins. Another change is because Concourse is designed to have atomic jobs so you can actually retrigger
+a pipeline from a particular stage.&lt;/p&gt;
+
+&lt;p&gt;The UI in Concourse is a minimalist dark mode style web interface. Jenkins still feels like it’s straight out of 2002, so
+it was nice to see a visual representation with boxes and lines versus the tables of Jenkins current pipeline representations.&lt;/p&gt;
+
+&lt;p&gt;One area that looks like it might be a pain with Concourse is its support for artifacts. Since each job is atomic, you have to
+handle passing things between jobs by pushing it out and storing it with a resource. Then some late job can pick it up
+and process it further.&lt;/p&gt;
+
+&lt;p&gt;The declarative style syntax of the pipelines appears to be fine, though I wouldn’t have minded the option to escape out to a full
+programming language.&lt;/p&gt;
+
+&lt;p&gt;Overall I thought it was an novel direction on CI servers and worth a deeper dive down the road.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="software development" /><category term="automated builds" /><summary type="html">Over the holidays I had a chance to do a review of the CI options out there. I’m more than happy with something like Travis, and I’ve often said Jenkins is the Wordpress of CI Servers even though I’ve used it now for the bulk of my career. Currently, I’m working on building out a full production pipeline for the State of California where we are attempting to be transparent and use AGPL 3.0 for all of our code. That pretty much eliminated Travis CI, Codeship, and Circle CI. I realize they’re free for open source projects in general, but suffice it to say that getting a SASS solution, even a free one approved with some level of access to our Github organization is a tall order with the existing policies in place. So self-hosted open source was going to be our options.</summary></entry><entry><title type="html">The Dark Side of Javascript Fatigue</title><link href="https://edgibbs.com/2016/02/08/the-dark-side-of-javascript-fatigue/" rel="alternate" type="text/html" title="The Dark Side of Javascript Fatigue" /><published>2016-02-08T20:54:20+00:00</published><updated>2016-02-08T20:54:20+00:00</updated><id>https://edgibbs.com/2016/02/08/the-dark-side-of-javascript-fatigue</id><content type="html" xml:base="https://edgibbs.com/2016/02/08/the-dark-side-of-javascript-fatigue/">&lt;p&gt;Javascript fatigue is a real experience for many developers who don’t spend their day to day in Node.js bashing out javascript. For many developers javascript is an occasional concern. The thing I can’t figure out about the javascript development world is the incredible churn. Churn is often disaster for a programming community. It frustrates anyone trying to build a solid application that will have a shelf life of a decade or more. Newcomers are treated to overwhelming choices without enough knowledge to choose. Then they find what they’ve learned is no longer the new and shiny tool only a few months later. And anyone on the outside feels validated in not jumping in.&lt;/p&gt;
+
+&lt;p&gt;Many in the javascript community attempt to couch all the churn as a benefit. It’s the incredible pace of innovation. I see sentiments like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The truth is, if you don’t like to constantly be learning new things, web development is probably not for you. You might have chosen the wrong career!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;— &lt;a href=&quot;https://medium.com/@joshburgess/javascript-fatigue-an-alternative-perspective-b6ae411e89ac#.io6cl65k9&quot;&gt;Josh Burgess&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Even if we accept that it all the ‘innovation’ is moving things forward more quickly, there is rarely the reflection on the consequences. I’ve worked on an approximately 9 year old Rails app for about 5 years now and I’m still shocked by the number different frameworks and styles of javascript that litter the app:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Hand rolled pre JQuery javascript&lt;/li&gt;
+  &lt;li&gt;Javascript cut and paste style&lt;/li&gt;
+  &lt;li&gt;RJS (an attempt to avoid writing javascript altogether in early rails)&lt;/li&gt;
+  &lt;li&gt;YUI&lt;/li&gt;
+  &lt;li&gt;Prototype&lt;/li&gt;
+  &lt;li&gt;Google Closure&lt;/li&gt;
+  &lt;li&gt;JQuery&lt;/li&gt;
+  &lt;li&gt;Angular&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Eight different frameworks in about as many years. And though we adopted Angular about 2 years ago we’re already dealing with non-backwards compatibility, Angular 2.0. This is a large burden on maintenance and it costs us very real time to spin up on each one when we have to enhance the app or fix a bug.&lt;/p&gt;
+
+&lt;p&gt;This is a monolithic app that’s been built over quite a few years, but the big difference is the Rails app was opinionated and stuck to a lot of default conventions. The framework churn of Rails has been much more gradual and generally backwards compatible. The largest pain we experience was going from Rails 2 to 3, when Rails was merged with Merb. The knowledge someone built up in their first few years working in Ruby and Rails still applies. The churn is certainly exists, but at a measure pace.&lt;/p&gt;
+
+&lt;p&gt;In phone screens when I describe our main app, I list off the myriad javascript frameworks we use as a negative they should know about. And almost none of the candidates have heard of Google Closure, even though a critical piece of the app was written in it. They often assume I must be talking about the JVM Clojure.&lt;/p&gt;
+
+&lt;p&gt;Javascript has never been popular because of elegance or syntax. Rants like the following are not hard to find:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You see the Node.js philosophy is to take the worst fucking language ever designed and put it on the server.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;— &lt;a href=&quot;https://medium.com/@wob/the-sad-state-of-web-development-1603a861d29f#.2v49dasi5&quot;&gt;Drew Hamlett&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Large majorities of developers would rather avoid it completely to focus on any modern language and hopefully use a transpiler if they have to touch Javascript. In this environment it might do the javascript community some good to settle down some and focus on some stability.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="javascript" /><category term="ruby" /><category term="software development" /><summary type="html">Javascript fatigue is a real experience for many developers who don’t spend their day to day in Node.js bashing out javascript. For many developers javascript is an occasional concern. The thing I can’t figure out about the javascript development world is the incredible churn. Churn is often disaster for a programming community. It frustrates anyone trying to build a solid application that will have a shelf life of a decade or more. Newcomers are treated to overwhelming choices without enough knowledge to choose. Then they find what they’ve learned is no longer the new and shiny tool only a few months later. And anyone on the outside feels validated in not jumping in.</summary></entry><entry><title type="html">Mob Programming (Pair Squared)</title><link href="https://edgibbs.com/2016/02/01/mob-programming-pair-squared/" rel="alternate" type="text/html" title="Mob Programming (Pair Squared)" /><published>2016-02-01T19:45:39+00:00</published><updated>2016-02-01T19:45:39+00:00</updated><id>https://edgibbs.com/2016/02/01/mob-programming-pair-squared</id><content type="html" xml:base="https://edgibbs.com/2016/02/01/mob-programming-pair-squared/">&lt;p&gt;I came across the idea of mob programming on an Elixir podcast, &lt;a href=&quot;https://soundcloud.com/elixirfountain&quot;&gt;Elixir Fountain&lt;/a&gt;. Its pair programming on steroids, where you sit together and work on one problem together. There’s still just one driver at a time, though it rotates. There’s already a &lt;a href=&quot;http://mobprogramming.org&quot;&gt;web site&lt;/a&gt; and a &lt;a href=&quot;http://www.mobprogrammingconference.com&quot;&gt;conference&lt;/a&gt; based on it.&lt;/p&gt;
+
+&lt;p&gt;I like the concept, but I’m not sure how effective it would be as a constant practice. I’ve done exercises like mob programming in small doses on particularly hard problems that involve architecture choices and occasionally as an exercise at user group meet ups. Anecdotally I don’t see doing it most of the time, but it is possible it works as a regular practice. It’s different enough that it might need some further experiments.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="podcasts" /><category term="software development" /><summary type="html">I came across the idea of mob programming on an Elixir podcast, Elixir Fountain. Its pair programming on steroids, where you sit together and work on one problem together. There’s still just one driver at a time, though it rotates. There’s already a web site and a conference based on it.</summary></entry><entry><title type="html">Git Commit Games</title><link href="https://edgibbs.com/2016/01/25/git-commit-games/" rel="alternate" type="text/html" title="Git Commit Games" /><published>2016-01-25T21:39:13+00:00</published><updated>2016-01-25T21:39:13+00:00</updated><id>https://edgibbs.com/2016/01/25/git-commit-games</id><content type="html" xml:base="https://edgibbs.com/2016/01/25/git-commit-games/">&lt;p&gt;A few years ago we were bringing on board a large group of new developers to the team. Most had a light testing background, some exposure to git and no real pairing experience. It didn’t take long to realize the number of commits on our project slowed down dramatically. Commits still happened, but they were generally large coarse grained commits with hundreds of line changes across many files.&lt;/p&gt;
+
+&lt;p&gt;After some gentle nudging about checking in early and often I realized the message wasn’t sticking. For the most part people waiting until they had completed a whole feature story to actually commit the code. So I figured it might be time to give things a bit of a push.&lt;/p&gt;
+
+&lt;p&gt;I remembered a plugin we tried out with Jenkins called the &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/The+Continuous+Integration+Game+plugin&quot;&gt;Continuous Integration Game&lt;/a&gt;. You got points for passing builds and adding tests and losing points for breaking the build and breaking tests. The experiment increased the testing a bit on that team, but it never really caught on. Still you have to keep on trying.&lt;/p&gt;
+
+&lt;p&gt;The rules were simple:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Every day you win by having more commits.&lt;/li&gt;
+  &lt;li&gt;More commits in a row means you can rib you’re coworkers about it.&lt;/li&gt;
+  &lt;li&gt;Blocking someone by committing between the time they pulled locally, merged, and ran tests was worthy of extra taunting.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Commits started picking up. After much joking commits were coming early and often. The experiment worked well enough that I wasn’t even giving feedback anymore. Early and often was the default.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="management" /><category term="software development" /><summary type="html">A few years ago we were bringing on board a large group of new developers to the team. Most had a light testing background, some exposure to git and no real pairing experience. It didn’t take long to realize the number of commits on our project slowed down dramatically. Commits still happened, but they were generally large coarse grained commits with hundreds of line changes across many files.</summary></entry><entry><title type="html">Books -&amp;gt; Digital -&amp;gt; Subscriptions</title><link href="https://edgibbs.com/2016/01/18/books-digital-subscriptions/" rel="alternate" type="text/html" title="Books -&amp;gt; Digital -&amp;gt; Subscriptions" /><published>2016-01-18T21:39:59+00:00</published><updated>2016-01-18T21:39:59+00:00</updated><id>https://edgibbs.com/2016/01/18/books-digital-subscriptions</id><content type="html" xml:base="https://edgibbs.com/2016/01/18/books-digital-subscriptions/">&lt;p&gt;As a 10 year old I read 100 books in a single summer. I’d read on the bus, at lunch, and waiting for soccer games to start. Ended up with a healthy bookshelf. When I switched to programming in the 90s I swept the bookstores at least once a week picking up books on Perl, Javascript, CGI, HTML.&lt;/p&gt;
+
+&lt;p&gt;Eventually I filled up several bookshelves with my technical library. When I picked up a first generation iPad I decided it was time to go all digital. I had experimented with Safari online, but it was never a replacement for my library. I went cold turkey with buying paper books. At this point I was mostly purchasing a lot of pragprog titles and transferring them to iBooks. And beta books don’t ship in paper.&lt;/p&gt;
+
+&lt;p&gt;A few weeks ago I realized I had moved to a subscription model. Now I just download my books from pragprog when I need them. No need to keep a bunch of titles in my library when I can pull down the up to date versions. I can also read them on my laptop, iPad, or iPhone anytime I want with a nice retina screen.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="software development" /><summary type="html">As a 10 year old I read 100 books in a single summer. I’d read on the bus, at lunch, and waiting for soccer games to start. Ended up with a healthy bookshelf. When I switched to programming in the 90s I swept the bookstores at least once a week picking up books on Perl, Javascript, CGI, HTML.</summary></entry><entry><title type="html">Debugging SSH on Mac OS X</title><link href="https://edgibbs.com/2016/01/11/debugging-ssh-on-mac-os-x/" rel="alternate" type="text/html" title="Debugging SSH on Mac OS X" /><published>2016-01-11T07:21:25+00:00</published><updated>2016-01-11T07:21:25+00:00</updated><id>https://edgibbs.com/2016/01/11/debugging-ssh-on-mac-os-x</id><content type="html" xml:base="https://edgibbs.com/2016/01/11/debugging-ssh-on-mac-os-x/">&lt;p&gt;As a developer SSH is something I have to think about maybe once every few months when I’m setting up a connection for someone pairing in tmux for example. Cutting and pasting public keys can cost real time when a line feed gets inserted inadvertently or something gets clipped.&lt;/p&gt;
+
+&lt;p&gt;So assuming ssh isn’t working and you can’t connect it turns out there’s a pretty helpful debug mode on the client and the server. For the client you simply add the -v mode and get a pretty good idea about what’s going on:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;ssh -v tmux@10.0.1.4 -i ~/.ssh/tmux_ssh&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If that isn’t enough then you can just launch another ssh service on another port in debug mode.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo /usr/sbin/sshd -d -p 4444&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then you can just connect your client to the debugging server with a port specification:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;ssh -v -p 4444 tmux@10.0.1.4 -i ~/.ssh/tmux_ssh&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;From that you should be able to get enough information to quickly debug the problem.&lt;/p&gt;
+
+&lt;p&gt;(My first experience with SSH was way back in 2000 when our 16 year old Unix sysadmin switched all the developers to SSH from raw telnet overnight because he could. All of us were on Windows or Classic Mac OS back then without any default SSH client software, and it cost us at least a day of pain to get everyone back to work.)&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="security" /><category term="software development" /><summary type="html">As a developer SSH is something I have to think about maybe once every few months when I’m setting up a connection for someone pairing in tmux for example. Cutting and pasting public keys can cost real time when a line feed gets inserted inadvertently or something gets clipped.</summary></entry><entry><title type="html">Ternary Operator Guidelines</title><link href="https://edgibbs.com/2015/12/14/ternary-operator-guidelines/" rel="alternate" type="text/html" title="Ternary Operator Guidelines" /><published>2015-12-14T23:02:37+00:00</published><updated>2015-12-14T23:02:37+00:00</updated><id>https://edgibbs.com/2015/12/14/ternary-operator-guidelines</id><content type="html" xml:base="https://edgibbs.com/2015/12/14/ternary-operator-guidelines/">&lt;p&gt;Short conversation at the office today. I declared that I wasn’t a big fan of ternaries and that I typically used them only for simple one line statements and almost never in returns and never nested. One of the developers challenged me on why the ternary operator is frowned on and I admitted I didn’t have much in the way of data. After some digging on the interwebs.&lt;/p&gt;
+
+&lt;p&gt;Github’s style guide has the most common approach to the ternary:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Avoid the ternary operator (?:) except in cases where all expressions are extremely trivial.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;—&lt;a href=&quot;https://github.com/styleguide/ruby&quot;&gt;Github style guide&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Support for using ternary’s in return statements is generally supported as well. There is general agreement that nesting ternaries is a bad practice. Static analyzers like Rubocop and Checkstyle include checks for nested ternary operators.&lt;/p&gt;
+
+&lt;p&gt;Historically ternary operators bothered me because I missed them sometimes when scanning through code. If and else are hard to miss on a quick scan. I’ve adjusted to using them for one simple one liners as the terseness is nice. Nesting them strikes me as abuse, much like single letter variables or predicates methods that have side effects.&lt;/p&gt;</content><author><name>Ed Gibbs</name></author><category term="software development" /><summary type="html">Short conversation at the office today. I declared that I wasn’t a big fan of ternaries and that I typically used them only for simple one line statements and almost never in returns and never nested. One of the developers challenged me on why the ternary operator is frowned on and I admitted I didn’t have much in the way of data. After some digging on the interwebs.</summary></entry></feed>

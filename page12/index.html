@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<!--
+    Basically Basic Jekyll Theme 1.3.1
+    Copyright 2017-2018 Michael Rose - mademistakes.com | @mmistakes
+    Free for personal and commercial use under the MIT license
+    https://github.com/mmistakes/jekyll-basically-theme/blob/master/LICENSE.md
+-->
+<html lang="en-US" class="no-js">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <title>Musings of a Software Development Manager</title>
+    <meta name="description" content="lessons learned managing developers">
+    <link rel="canonical" href="https://edgibbs.com/page12/">
+  
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  
+
+  
+    
+    <link rel="alternate" type="application/atom+xml" title="Musings of a Software Development Manager" href="/feed.xml">
+  
+</head>
+
+
+  <body class="layout--home ">
+
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#primary-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+
+    <div class="sidebar-toggle-wrapper">
+      
+
+      <button class="toggle navicon-button larr" type="button">
+        <span class="toggle-inner">
+          <span class="sidebar-toggle-label visually-hidden">Menu</span>
+          <span class="navicon"></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+      <div class="inner">
+        <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+  <ul id="menu-main-navigation" class="menu">
+    <!-- Home link -->
+    <li class="menu-item">
+      <a href="/" itemprop="url">
+        <span itemprop="name">Home</span>
+      </a>
+    </li>
+
+    <!-- site.pages links -->
+    
+    
+
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/archive.html" itemprop="url">
+            <span itemprop="name">Archive</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/bio.html" itemprop="url">
+            <span itemprop="name">Bio</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/junit-4-with-hamcrest.html" itemprop="url">
+            <span itemprop="name">JUnit 4 with Hamcrest</span>
+          </a>
+        </li>
+      
+    
+      
+      
+        <li class="menu-item">
+          <a href="/spock-intro-a-bdd-testing-framework-in-groovy.html" itemprop="url">
+            <span itemprop="name">Spock Intro</span>
+          </a>
+        </li>
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  </ul>
+</nav>
+
+        <ul class="contact-list">
+  
+    <li>
+      <a href="mailto:edward_gibbs@yahoo.com">
+        <span class="icon icon--email"><svg xmlns="http://www.w3.org/2000/svg" viewBox="313.1 3.7 16 16"><path d="M318.5 8.9c0-.2.2-.4.4-.4h4.5c.2 0 .4.2.4.4s-.2.4-.4.4h-4.5c-.3 0-.4-.2-.4-.4zm.4 2.1h4.5c.2 0 .4-.2.4-.4s-.2-.4-.4-.4h-4.5c-.2 0-.4.2-.4.4s.1.4.4.4zm3.5 1.2c0-.2-.2-.4-.4-.4h-3.1c-.2 0-.4.2-.4.4s.2.4.4.4h3.1c.2.1.4-.1.4-.4zm-1.5-8.4l-1.7 1.4c-.2.1-.2.4 0 .6s.4.2.6 0l1.4-1.2 1.4 1.2c.2.1.4.1.6 0s.1-.4 0-.6l-1.7-1.4c-.3-.1-.5-.1-.6 0zm7.8 6.2c.1.1.1.2.1.3v7.9c0 .8-.7 1.5-1.5 1.5h-12.5c-.8 0-1.5-.7-1.5-1.5v-7.9c0-.1.1-.2.1-.3l1.6-1.3c.2-.1.4-.1.6 0s.1.4 0 .6l-1.2 1 1.8 1.3v-4c0-.6.5-1.1 1.1-1.1h7.5c.6 0 1.1.5 1.1 1.1v4l1.8-1.3-1.2-1c-.2-.1-.2-.4 0-.6s.4-.2.6 0l1.6 1.3zm-11.6 2.2l4 2.8 4-2.8V7.6c0-.1-.1-.2-.2-.2h-7.5c-.1 0-.2.1-.2.2v4.6zm10.9-1l-4.7 3.4 3.4 2.6c.2.1.2.4.1.6-.1.2-.4.2-.6.1l-3.6-2.8-1.2.8c-.1.1-.3.1-.5 0l-1.2-.8-3.6 2.8c-.2.1-.4.1-.6-.1-.1-.2-.1-.4.1-.6l3.4-2.6-4.7-3.4v7.1c0 .4.3.6.6.6h12.5c.4 0 .6-.3.6-.6v-7.1z"/></svg></span>
+        <span class="label">Email</span>
+      </a>
+    </li>
+  
+
+  
+    <li><a href="https://github.com/edgibbs">
+  <span class="icon icon--github"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/></svg></span>
+  <span class="label">GitHub</span>
+</a>
+</li>
+  
+
+  
+    <li><a href="https://twitter.com/edward_gibbs">
+  <span class="icon icon--twitter"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M16 3.038c-.59.26-1.22.437-1.885.517.677-.407 1.198-1.05 1.443-1.816-.634.37-1.337.64-2.085.79-.598-.64-1.45-1.04-2.396-1.04-1.812 0-3.282 1.47-3.282 3.28 0 .26.03.51.085.75-2.728-.13-5.147-1.44-6.766-3.42C.83 2.58.67 3.14.67 3.75c0 1.14.58 2.143 1.46 2.732-.538-.017-1.045-.165-1.487-.41v.04c0 1.59 1.13 2.918 2.633 3.22-.276.074-.566.114-.865.114-.21 0-.41-.02-.61-.058.42 1.304 1.63 2.253 3.07 2.28-1.12.88-2.54 1.404-4.07 1.404-.26 0-.52-.015-.78-.045 1.46.93 3.18 1.474 5.04 1.474 6.04 0 9.34-5 9.34-9.33 0-.14 0-.28-.01-.42.64-.46 1.2-1.04 1.64-1.7z" fill-rule="nonzero"/></svg></span>
+  <span class="label">Twitter</span>
+</a>
+</li>
+  
+
+  <li>
+    
+      <a href="/feed.xml" title="Atom Feed">
+        <span class="icon icon--rss"><svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414"><path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194 11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0 13.806c0-1.21.983-2.195 2.194-2.195zM10.606 16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"/></svg></span>
+        <span class="label">Subscribe</span>
+      </a>
+    
+  </li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class="canvas">
+      <div class="wrapper">
+        
+
+<header id="masthead">
+  <div class="inner">
+    <div class="title-area">
+      
+        <p class="site-title">
+          <a href="/">
+            <img src="/images/avatar.jpg" alt="" class="site-logo">
+            <span>Musings of a Software Development Manager</span>
+          </a>
+        </p>
+      
+    </div>
+  </div>
+</header>
+
+        <div class="initial-content">
+          
+
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+    <div></div>
+
+    <div>
+      <div class="entries">
+        
+          
+          
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2011/03/08/developers-and-desktop-databases/" rel="bookmark">Developers and Desktop Databases
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2011-03-08T06:26:07+00:00">March 8, 2011</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>Typically development groups fall into one of two patterns:</p>
+
+<ul>
+  <li>Shared development database – every developer shares a single centralized development database often managed by a DBA group.</li>
+  <li>Desktop databases – every developer has an individual instance of the database.</li>
+</ul>
+
+<p>The practice has evolved over time and developers tend to follow precedence on it. Historically, developers didn’t think of running a local database, primarily because of the resources involved. Installing and running something like Oracle locally used to be a significant drag on a development machine. You were already trying to run some sort of IDE that sucked up most of your machines resources so running the database locally wasn’t a great option. If you were lucky enough to be running a pretty light weight database you might think about running a local copy, but otherwise you just setup a connection and shared the dev instance.</p>
+
+<p>As machines have gotten quite capable of running databases, IDEs, and even virtual machines all at the same time the option to run a local copy of the database became very real. In this case a number of developers began to install and run local copies of the database. Running your own local copy quickly makes some development issues stand out:</p>
+
+<ul>
+  <li>You have to learn a bit more about how your target database software is setup. Suddenly it’s just not just a set of connection parameters.</li>
+  <li>You have to think about the best way to coordinate changes to the database model. Making a lot of changes locally to apply later to the central dev integration instance is going to end in a lot of angry emails with how you broke the build.</li>
+  <li>You can quickly experiment with local changes to the database model without impacting the rest of the team.</li>
+  <li>You have a truly complete development environment, so if you take your laptop home at night, work remotely for the day, or get called for troubleshooting in the evening you can be effective without having to VPN into the dev database or drive into the office.</li>
+</ul>
+
+<p>I think the long term trend is most developers will run local instances of their target database. This is almost standard in startups and newer organizations. As a consultant I love having a complete development environment since I can run and demo the project at a moment’s notice. The issues with integration are being addressed with approaches like database migrations in Rails and maintenance of DDL in source control, treating it like an equal member of the code. I’ve also seen partial steps towards this model with the idea of in-memory local databases used for unit/integration testing where you use an ORM like Hibernate to build the database model on the fly whenever you need to run tests.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2011/03/03/spock-intro-tutorial/" rel="bookmark">Spock Intro Tutorial
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2011-03-03T06:21:05+00:00">March 3, 2011</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <div align="center">
+  <img src="/images/spock.jpg" />
+</div>
+
+<p>I gave a presentation on Spock a very nice BDD framework in Groovy a few months back to our Groovy Users Group in Sacramento. After using it on a real world Grails project the last few months it has grown on me to become my go to testing framework for Groovy/Grails or Java projects. A typical specification looks something like this:</p>
+
+<figure class="highlight"><pre><code class="language-groovy" data-lang="groovy"> <span class="kt">def</span> <span class="s2">"a pager should calculate total pages, current page, and offset"</span><span class="o">()</span> <span class="o">{</span>
+  <span class="nl">when:</span> <span class="s2">"count, rows and page number"</span>
+  <span class="kt">def</span> <span class="n">pager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Pager</span><span class="o">(</span><span class="n">count</span><span class="o">,</span> <span class="n">rows</span><span class="o">,</span> <span class="n">page</span><span class="o">)</span>
+
+  <span class="nl">then:</span> <span class="s2">"should return correct total pages, the current page, and the offset"</span>
+  <span class="n">pager</span><span class="o">.</span><span class="na">totalPages</span> <span class="o">==</span> <span class="n">totalPages</span>
+  <span class="n">pager</span><span class="o">.</span><span class="na">currentPage</span> <span class="o">==</span> <span class="n">currentPage</span>
+  <span class="n">pager</span><span class="o">.</span><span class="na">offset</span> <span class="o">==</span> <span class="n">offset</span>
+
+  <span class="nl">where:</span> <span class="s2">"you have a number of different scenarios"</span>
+  <span class="n">count</span> <span class="o">|</span> <span class="n">rows</span> <span class="o">|</span> <span class="n">page</span> <span class="o">|</span> <span class="n">totalPages</span> <span class="o">|</span> <span class="n">currentPage</span> <span class="o">|</span> <span class="n">offset</span>
+  <span class="mi">100</span>   <span class="o">|</span> <span class="mi">10</span>   <span class="o">|</span>   <span class="mi">1</span>  <span class="o">|</span>    <span class="mi">10</span>      <span class="o">|</span>     <span class="mi">1</span>       <span class="o">|</span>   
+  <span class="mi">950</span>   <span class="o">|</span> <span class="mi">100</span>  <span class="o">|</span>   <span class="mi">5</span>  <span class="o">|</span>    <span class="mi">10</span>      <span class="o">|</span>     <span class="mi">5</span>       <span class="o">|</span>   <span class="mi">400</span>
+  <span class="mi">72</span>    <span class="o">|</span> <span class="mi">20</span>   <span class="o">|</span>   <span class="mi">3</span>  <span class="o">|</span>    <span class="mi">4</span>       <span class="o">|</span>     <span class="mi">3</span>       <span class="o">|</span>   <span class="mi">40</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>If that passed your 5 second test take a look at a fuller introductory tutorial I put together.</p>
+
+<p><a href="http://edgibbs.com/spock-intro-a-bdd-testing-framework-in-groovy/">A Gentle Introduction to Spock</a></p>
+
+<p>And if you want to try out executing real code the project has a nice browser based environment at <a href="http://meetspock.appspot.com/">Meet Spock</a>.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2011/01/23/agilezen-for-solo-remote-development/" rel="bookmark">AgileZen for Solo Remote Development
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2011-01-23T20:55:33+00:00">January 23, 2011</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>Over the past few months I’ve been working on some remote projects as a solo developer. Knowing I wanted a light weight tracking tool I took some time to experiment with a few tools and I’ve recently come to appreciate the lightweight character of <a href="http://agilezen.com/">AgileZen</a>.</p>
+
+<p>Despite many warnings to use the simplest thing that could possibly work, often stickies on the wall or simple index cards, there have always been a number of options to translate these planning/tracking tools to software applications. Despite settling on the power of physical wallboards for collocated teams throughout my career I have looked into using a number of tools for feasibility ultimately deciding none of them worked as well as a cork board and some stickies or index cards. Tactile and visual cards rock.</p>
+
+<p>Some of the tools I’ve looked at in the past include:</p>
+
+<ul>
+  <li><a href="http://edgibbs.com/2005/08/22/pain-with-xplanner-part-ii/">XPlanner</a> (an very old tool in the space)</li>
+  <li><a href="http://edgibbs.com/2006/02/27/trying-out-basecamp/">Basecamp</a></li>
+  <li><a href="http://edgibbs.com/2007/06/15/sprint-backlog-task-boards-versus-spreadsheets/">Excel</a></li>
+  <li><a href="http://www.rallydev.com/">Rally</a></li>
+  <li><a href="http://edgibbs.com/2006/05/08/finally-tried-out-scrumworks/">Scrumworks</a></li>
+  <li><a href="https://www.pivotaltracker.com/">Pivotal Tracker</a></li>
+  <li><a href="http://trac.edgewall.org/">Trac</a></li>
+  <li><a href="http://www.mantisbt.org/">Mantis</a> (a bug tracking tool used for planning)</li>
+</ul>
+
+<p>I never felt any of them where worth the effort to maintain in the end despite many high hopes. I’m not immune to tool fascination, but I tried to honestly evaluate the worthiness of the given tool. As a manager much of my focus on this was to please stakeholders and other managers with a nice visual report that could be shared via email and web browsers. In my Agile rollouts it turned out that I was ultimately more successful showing off my cork boards and cards. We did maintain an Excel spreadsheet with backlogs as well to meet some documentation standards for PM groups. It was a small compromise I was willing to live with.</p>
+
+<p>My most recent projects presented me with a different challenge. As a solo developer I’m largely on my own and not sharing the project tasks with anyone else, but I like to have an organized workflow at all times. My home office doesn’t have much in the way of space for a nice corkboard, and again I wanted to fiddle with tools so I tried a few to see how they might work for me.</p>
+
+<p>A first attempt was with <a href="http://www.pivotaltracker.com/">Pivotal Tracker</a>. I love the things <a href="http://pivotallabs.com/">Pivotal</a> is doing out there with a focus on TDD/BDD, pair programming and producing high quality code. Pivotal Tracker is a nicely polished tracking tool that largely simulates the idea of a wall board with an emphasis on iterations that contain a set number of story points. It’s an opinionated piece of software with this and assumes that you are very concerned with ordering of stories based on points and how you pull them into the backlog. After a lot of work trying to understand how it wants me to work I found it not a great fit as a solo developer. It assumes you want to have tracker plan your iterations automatically based on your velocity. In fact they admit that you can change some settings for the current iteration to allow you to drag stories in or out, but it will still automatically plan all the other iterations in the backlog. In the end I might be up for trying it with a non-collocated team, but for a solo developer the overhead was a bit higher than I prefer.</p>
+
+<p><a href="http://agilezen.com/">AgileZen</a> was my second attempt. I remember from some old twitter and blog posts that several people had said it was a really nice lightweight tool. I realized arriving at the site they had been acquired by Rally. I’ve used Rally’s tools, but for collocated teams I didn’t really think the overhead of using Rally was worth it. It appears that AgileZen is their attempt to provide a lighter more Kanban style tool. I liked the little bonsai tree on the login and found more to like when I went in and attempted to setup my current project. I watched the short series of screen casts showing how it worked, maybe 5-10 minutes in all. After that I’ve been very productive without having to dig into any help. The central metaphor is just a digital task board:</p>
+
+<div align="center">
+  <img src="/images/zen_board.gif" />
+</div>
+
+<p>Agile Zen focuses on the concept of cards and a board with very lightweight workflow. You create a feature or user story and ‘hang the card on the wall’. You then just move the card to progress it from the backlog to started. You can do some customization, but the default workflow was perfect for me as a single developer. It also looks like it works quite well for remote teams and appears to support more options like marking cards as ready or blocked. I’ve even used the blocked status for a card once where I wanted to run a design idea by a colleague before I continued further on that particular story. And I’m a sucker for some auto-generated stats, but it has a nice page where it calculates your throughput with a pretty graph. It will take more time to see if the stats actually give me useful feedback, but did I mention they look nice:</p>
+
+<div align="center">
+  <img src="/images/zen_performance.gif" />
+</div>
+
+<p>Overall the tool feels closer to a digital taskboard than anything else I’ve experimented with. I’d still use a physical task board for a collocated team, but for a team working in remote locations or a single developer I think it makes a very good electronic substitute. Now if only it had an iPad version. If you’re a solo developer feel free to try it yourself as it’s 1 project is free for a single developer.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2011/01/17/fallback-plan-in-action-from-software-manager-to-developer/" rel="bookmark">Fallback Plan in Action: From Software Manager to Developer
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2011-01-17T21:19:20+00:00">January 17, 2011</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <p>Everyone relishes the confidence of a having a backup plan if everything falls apart. For myself as a manager it was knowing I could always go back to development if something unexpected came up. After 10 years as a development manager, I got the unfortunate call to follow my director to an unannounced meeting first thing in the morning. Turns out the CIO had decided the organization didn’t need developers and could get by with contractors so there was no need for a development manager. My director would depart the company as well a few months later.</p>
+
+<p>I was in a state of shock for a few days. Sacramento is a small IT market normally and finding open development management positions is fairly rare. I explored a number of options for the first month afterwards including biting the bullet and taking a great job in the Bay area but living with a horrible commute and lousy family life. For many reasons I choose family over a nasty commute.</p>
+
+<p>I came back to the plan of returning to a developer/architect/tech lead role. I hadn’t done day to day development in at least 5 years, but I’ve always kept up my skills with home projects and taking on the tasks of running infrastructure tools like source control, CI servers , wikis, and functional testing tools. I really enjoyed managing development teams and moving obstacles and really growing the skills of my team, but now it was time to focus on myself.</p>
+
+<p>Fear was right up front. I felt like an impostor in the first few development interviews all of which went well despite this. I’ve never felt a high degree of confidence in my abilities and always felt the need to prove myself. With my background as in professional services I eventually got acclimated to the feeling that I was an impostor working on the client’s project. It motivated me to spin up incredibly quickly so I wouldn’t be exposed as a fraud. I’m still not sure this has been the healthiest approach, but I’m still working through my affliction with the <a href="http://blogs.techrepublic.com.com/project-management/?p=2075">Impostor’s Syndrome</a>.</p>
+
+<p>Another factor was figuring out how comfortable I was with making less. Development managers simply make more than senior developers. I’m certain this is the wrong approach in many cases as I always felt at least my top few people were more important to the company than myself, but HR departments really like hierarchal salary structures. So diving into development was likely to mean a salary hit. I have a wonderful wife, two kids, and a hefty mortgage. The prospect of taking a startup job with a firm that was a using new technologies was enticing, but taking a big salary cut was going to be very hard. Lesson learned with the mortgage, sometimes the nice new house isn’t worth the career choices it forces you into to, but you end up making some compromises in life.</p>
+
+<p>I ended up deciding I had to hold out for a well paying position even if that meant working for less exciting companies and technologies. It probably meant a lot of Java/J2EE given my background instead of Groovy/Ruby or mobile development.</p>
+
+<p>Anyway after a month or so of doing some big career thinking, visiting family and friends, and polishing up some slightly rusty Java chops I dipped my toes back in the water with a couple one off gigs for a former employer. I took on a mentoring an organization through development tool choices and how to guide their staff on working with these new tools. From there I took an assignment to do a custom WebLogic course for a client. It was a week long course which I felt I could ramp and cover, but brought back a lot of lingering doubts.</p>
+
+<p>I’ve done many presentations over the years ranging from an hour or two to a half day seminar. I feel very confident in the ability to deliver them with a high degree of quality. Before this I had done two week-long courses in the past and survived them both, but walked away from each feeling as though I had done a horrible job. Keeping a class engaged and interested in a topic for an entire week and knowing it deeply enough to answer almost any question is quite a tall order. So the WebLogic course was a big challenge.</p>
+
+<p>I spent a week immersed in the course material and working through the labs several times after building a VMWare image. I prepped in front of the director of the company, feeling like I was going to fail. I delivered the course, and spent 6 hours every night reviewing everything for the next days class. I was actually shaking stood up to deliver a lecture on a new section. The good news was even though I felt like it hadn’t gone that well, I got glowing reviews from the students.</p>
+
+<p>Soon after I dived full time back into consulting with a company. I had many assignments helping mentor development organizations and a ton of classes and custom class deliveries. In 6 months I actually taught 21 different week long courses. The work was brutal, but eventually I got the confidence in my abilities back, and I can almost effortlessly present on technical topics with just a small amount of prep time. Over the last 6 months I’ve come back to almost full time coding and even gotten to do a nice Groovy/Grails/jQuery project utilizing 1 week iterations.</p>
+
+<p>I’ve read many times about how many technical managers make the mistake of letting themselves get promoted and then they can’t let go of the coding. And many technical managers point out the need to focus on the management tasks of the job. My approach to this was to focus on the management of my team, but to keep my skills fresh by doing side projects at home, presenting at user groups, and doing code reviews and maintaining build servers at the office. I don’t think this is the common approach of development managers, but it’s the only approach I’ve felt comfortable with. I do remember feeling some camaraderie with Rands (of <a href="http://randsinrepose.com/">Rands in Repose</a>) as he proposes:</p>
+
+<blockquote>
+  <p>“I’m still cringing. Someone is already yelling at me, “MANAGERS OWNING FEATURES??!?!” (And I agree.) You are still a manager, so make it a small feature, ok? You’ve still got a lot to do. If you can’t imagine owning a feature, my back-up advice is to fix some bugs. You won’t get the joy of ownership, but you’ll gain an understanding of the construction of the product that you’ll never get walking the hallway.”</p>
+
+  <p>— <a href="http://www.randsinrepose.com/archives/2007/02/07/technicality.html">Rands</a></p>
+</blockquote>
+
+<p>So the fallback plan is just as important as the financial advice you always get to make sure you have at least 6 months of salary socked away so you can ride out a layoff. Rather than fighting for nearly nonexistent management positions in a bad economy I was able to step into development and do important work. While I love management there are aspects of development that I’m very passionate about and I may continue on this course for the next few years. I’m sure I’ll return to managing a development team as it’s in my DNA, but for now I’m enjoying firing off a ‘git commit’, seeing lots of green tests passing and building a quality app in short iterations.</p>
+
+  </div>
+</article>
+
+
+  
+
+<article class="entry">
+  <header class="entry-header">
+    <h3 class="entry-title">
+      <a href="/2010/11/07/recruiting-for-passion-creative-job-descriptions/" rel="bookmark">Recruiting for Passion: Creative Job Descriptions
+</a>
+    </h3>
+  </header>
+  <footer class="entry-meta">
+    <ul>
+    
+      <li><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="379 72 16 16"><g><g><path fill="none" d="M380.8,86.7h12.3v-8.8h-12.3V86.7z M389.5,78.8h1.7v1.4h-1.7V78.8z M389.5,81.3h1.7v1.4h-1.7V81.3z M389.5,83.8h1.7v1.4h-1.7V83.8z M386.1,78.8h1.7v1.4h-1.7V78.8z M386.1,81.3h1.7v1.4h-1.7V81.3z M386.1,83.8h1.7v1.4h-1.7V83.8z M382.8,78.8h1.7v1.4h-1.7V78.8z M382.8,81.3h1.7v1.4h-1.7V81.3z M382.8,83.8h1.7v1.4h-1.7V83.8z"/><polygon fill="none" points="384.7 75.1 383.4 75.1 383.4 74.3 380.8 74.3 380.8 76.6 393.2 76.6 393.2 74.3 390.6 74.3 390.6 75.1 389.3 75.1 389.3 74.3 384.7 74.3"/><rect x="382.8" y="78.8" width="1.7" height="1.4"/><rect x="386.1" y="78.8" width="1.7" height="1.4"/><rect x="389.5" y="78.8" width="1.7" height="1.4"/><rect x="382.8" y="81.3" width="1.7" height="1.4"/><rect x="386.1" y="81.3" width="1.7" height="1.4"/><rect x="389.5" y="81.3" width="1.7" height="1.4"/><rect x="382.8" y="83.8" width="1.7" height="1.4"/><rect x="386.1" y="83.8" width="1.7" height="1.4"/><rect x="389.5" y="83.8" width="1.7" height="1.4"/><path d="M383.4,72v1.1h-3.8V88h14.9V73.1h-3.8V72h-1.3v1.1h-4.7V72H383.4z M393.2,86.7h-12.3v-8.8h12.3L393.2,86.7L393.2,86.7z M389.3,74.3v0.8h1.3v-0.8h2.5v2.3h-12.3v-2.3h2.5v0.8h1.3v-0.8H389.3z"/></g></g></svg></span><time class="entry-time" datetime="2010-11-07T11:30:25+00:00">November 7, 2010</time></li>
+    
+    
+    </ul>
+  </footer>
+  <div class="entry-excerpt">
+      <div align="center">
+  <img src="/images/job_selector.gif" />
+</div>
+
+<p>As a new manager recruiting for the first time you’ll find HR will usually provide you with a job description template. You’ll read it, laugh at how generic it is, and then try to do a bit of modification. That’s a futile effort. (Though depending on the organization you may have to leave pretty close to the strict confines of a template, in that case you’ll be working with a few custom bullet points you can work in.)</p>
+
+<p>You’re actually looking for the most talented, passionate developers you can find given the opportunity, your location, and the relative pay rates provided. So how do you attract those people with a generic job posting? Instead you rewrite the position from scratch and ask for things like writing plugins to open source frameworks, giving presentations at conferences, or writing a technical blog. You want to attract developers who care about their craft and are going to bring up the overall level of your team.</p>
+
+<p>So in short:</p>
+
+<ul>
+  <li>Keep it short a paragraph or two and bullet points. The meat of the content is in the bullet points.</li>
+  <li>Explain the challenges of your environment, if you’re a hardcore waterfall shop trying to shift to Agile be upfront.</li>
+  <li>Explain that mentoring is part of the job.</li>
+  <li>If you have the control you can even write the job description in a programming language.</li>
+  <li>Be very clear that bringing your passion to work is encouraged.</li>
+  <li>If you’ve won some of the wars with the furniture police, explain the nice hardware and multiple large monitors that are available, or even semi-private offices.</li>
+  <li>If other members of the team have some public blogs, or open source projects point to those as well to give them a feel for the team.</li>
+  <li>If you’re not in Silicon Valley or New York, sell the upside of your region (probably cheaper living).</li>
+  <li>If HR will let you point to some of the targeted job posting sites like <a href="http://jobs.37signals.com/">37 Signals</a> or <a href="http://careers.stackoverflow.com/">Stack Overflow</a>.</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+<!-- Pagination links -->
+<nav class="pager">
+  <ul>
+    <!-- Page: 12 of 151 -->
+    
+      <li><a href="/page11/" class="previous"><span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="430 -22.8 16 16"><path d="M433.4-15.7c-.2.2-.4.5-.4.9 0 .3.1.6.4.9l6.7 6.7c.2.3.5.4.9.4.3 0 .6-.1.9-.4l.8-.8c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-5-5 5-5c.3-.2.4-.5.4-.9 0-.3-.1-.6-.4-.9l-.8-.8c-.2-.3-.5-.4-.9-.4-.3 0-.7.1-.9.4l-6.7 6.7z"/></svg></span> Newer</a></li>
+    
+    
+      <li><a href="/page13/" class="next">Older <span class="icon icon--arrow-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="50.4 -114.8 16 16"><path d="M63.1-107.7l-6.7-6.7c-.2-.3-.6-.4-.9-.4-.4 0-.7.1-.9.4l-.8.8c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l5 5-5 5c-.3.3-.4.6-.4.9 0 .4.1.7.4.9l.8.8c.3.3.6.4.9.4.4 0 .7-.1.9-.4l6.7-6.7c.3-.3.4-.6.4-.9 0-.4-.2-.7-.4-.9z"/></svg></span></a></li>
+    
+  </ul>
+</nav>
+        
+      </div>
+    </div>
+
+    <footer id="footer" class="site-footer">
+  <div class="inner">
+    <div class="copyright">
+      
+        <p>&copy; 2020 Musings of a Software Development Manager.</p>
+      
+    </div>
+  </div>
+</footer>
+
+  </div>
+</main>
+
+        </div>
+
+        <div class="search-content">
+          <div class="inner">
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+
+<script async src="/assets/javascripts/main.js"></script>
+
+
+
+
+  </body>
+
+</html>
